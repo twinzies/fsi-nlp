@@ -159,13 +159,13 @@ def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 20):
     return lda_model, perplexity
 
 
-def visualize_clusters_and_save(reduced_df, filename="Outputs/tsne_clusters.csv"):
+def visualize_clusters_and_save(reduced_df, k, filename="Outputs/tsne_clusters.csv"):
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection='3d')
     scatter = ax.scatter(reduced_df['x'], reduced_df['y'], reduced_df['z'], c=reduced_df['cluster'], cmap='tab10')
     ax.set_title("t-SNE Clustering Visualization")
     plt.legend(*scatter.legend_elements(), title="Clusters")
-    plt.savefig("Outputs/tsne_clusters.png")
+    plt.savefig(f"Outputs/tsne_clusters_k={k}.png")
     plt.close()
     reduced_df.to_csv(filename, index=False)
     logging.info(f"Saved 3D cluster visualization data to {filename}")
@@ -183,7 +183,7 @@ def generate_wordclouds(clustered_data, cluster_col, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
     grouped_data = clustered_data.groupBy(cluster_col).agg(
-        concat_ws(" ", collect_list("sentence")).alias("cluster_text")
+        concat_ws(" ", collect_list("tokens")).alias("cluster_text")
     )
     grouped_data_pd = grouped_data.toPandas()
 
@@ -293,7 +293,7 @@ def main():
 
         reduced_df = dimensionality_reduction(clustered_data)
 
-        visualize_clusters_and_save(reduced_df, filename=f"Outputs/tsne_clusters_k={k}.csv")
+        visualize_clusters_and_save(reduced_df, k,filename=f"Outputs/tsne_clusters_k={k}.csv")
         
         # evaluate_clusters(clustered_data)
         
