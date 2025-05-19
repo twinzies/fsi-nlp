@@ -25,7 +25,7 @@ from pyspark.ml.feature import CountVectorizer
 from pyspark.ml.linalg import Vectors, VectorUDT
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql.functions import col, collect_list, concat_ws, udf
-from pyspark.sql.types import ArrayType, DoubleType, StringType
+from pyspark.sql.types import ArrayType, DoubleType, IntegerType, StringType
 from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_score
 from transformers import AutoModel, AutoTokenizer
@@ -158,18 +158,6 @@ def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 20):
 
     return lda_model, perplexity
 
-
-def visualize_clusters_and_save(reduced_df, k, filename="Outputs/tsne_clusters.csv"):
-    fig = plt.figure(figsize=(10, 8))
-    ax = fig.add_subplot(111, projection='3d')
-    scatter = ax.scatter(reduced_df['x'], reduced_df['y'], reduced_df['z'], c=reduced_df['cluster'], cmap='tab10')
-    ax.set_title("t-SNE Clustering Visualization")
-    plt.legend(*scatter.legend_elements(), title="Clusters")
-    plt.savefig(f"Outputs/tsne_clusters_k={k}.png")
-    plt.close()
-    reduced_df.to_csv(filename, index=False)
-    logging.info(f"Saved 3D cluster visualization data to {filename}")
-
 def evaluate_clusters(clustered_data):
     pandas_df = clustered_data.select("features", "prediction").toPandas()
     X = pandas_df["features"].apply(lambda x: list(map(float, x))).tolist()
@@ -182,41 +170,69 @@ def evaluate_clusters(clustered_data):
 def generate_wordclouds(clustered_data, cluster_col, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
+    # Ensure necessary columns exist
+    if not all(col_name in clustered_data.columns for col_name in ["tokens", cluster_col]):
+        logging.error("Missing required columns in clustered_data. 'tokens' and cluster_col must be present.")
+        return
+
+    clustered_data = clustered_data.withColumn("text", concat_ws(" ", col("tokens")))
+
     grouped_data = clustered_data.groupBy(cluster_col).agg(
-        concat_ws(" ", collect_list("tokens")).alias("cluster_text")
+        concat_ws(" ", collect_list("text")).alias("cluster_text")
     )
+
     grouped_data_pd = grouped_data.toPandas()
 
     for _, row in grouped_data_pd.iterrows():
         cluster_label = row[cluster_col]
         cluster_text = row["cluster_text"]
 
-        wordcloud = WordCloud(width=1600, height=800, background_color="white",
-                              collocations=False, colormap="tab10").generate(cluster_text)
+        if not isinstance(cluster_text, str) or not cluster_text.strip():
+            logging.warning(f"Empty or invalid text for cluster {cluster_label}. Skipping word cloud.")
+            continue
 
-        plt.figure(figsize=(12, 6))
-        plt.imshow(wordcloud, interpolation="bilinear")
-        plt.axis("off")
-        plt.tight_layout(pad=0)
-        logging.info(f"Generating wordcloud for cluster {cluster_label}")
-        plt.title(f"Wordcloud for Cluster {cluster_label}", fontsize=20)
-        plt.savefig(os.path.join(output_dir, f"wordcloud_cluster_{cluster_label}.png"), dpi=300)
-        plt.close()
+        try:
+            wordcloud = WordCloud(
+                width=1600,
+                height=800,
+                background_color="white",
+                collocations=False,
+                colormap="tab10"
+            ).generate(cluster_text)
+
+            plt.figure(figsize=(12, 6))
+            plt.imshow(wordcloud, interpolation="bilinear")
+            plt.axis("off")
+            plt.tight_layout(pad=0)
+            plt.title(f"Wordcloud for Cluster {cluster_label}", fontsize=20)
+            filepath = os.path.join(output_dir, f"wordcloud_cluster_{cluster_label}.png")
+            plt.savefig(filepath, dpi=300)
+            plt.close()
+            logging.info(f"Saved wordcloud for cluster {cluster_label} to {filepath}")
+
+        except Exception as e:
+            logging.error(f"Failed to generate wordcloud for cluster {cluster_label}: {e}")
 
 def dimensionality_reduction(clustered_data):
     pandas_df = clustered_data.select("features", "cluster").toPandas()
-
-    # Convert list of lists to numpy array
     X = np.array(pandas_df["features"].tolist())
     y = pandas_df["cluster"].tolist()
-    
     tsne = TSNE(n_components=3, random_state=SEED)
     X_tsne = tsne.fit_transform(X)
-
     result_df = pd.DataFrame(X_tsne, columns=["x", "y", "z"])
     result_df["cluster"] = y
     return result_df
 
+def visualize_clusters_and_save(reduced_df, k, filename="Outputs/tsne_clusters.csv", algorithm="KMeans"):
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    scatter = ax.scatter(reduced_df['x'], reduced_df['y'], reduced_df['z'], c=reduced_df['cluster'], cmap='tab10')
+    ax.set_title("t-SNE Clustering Visualization")
+    plt.legend(*scatter.legend_elements(), title="Clusters")
+    plt.savefig(f"Outputs/tsne_clusters_k={k}_{algorithm}.png")
+    plt.close()
+    reduced_df.to_csv(filename, index=False)
+    logging.info(f"Saved 3D cluster visualization data to {filename}")
 
 
 def main():
@@ -240,11 +256,18 @@ def main():
     perplexities = []
 
     # Try multiple values of k for LDA and compare perplexity
+    get_dominant_topic = udf(lambda dist: int(np.argmax(dist)), IntegerType())
+
     for k in [3, 4, 5, 8]:
-        model, perplexity = lda(sentences_with_features, lda_vocab, k=k)
-        lda_models.append(model)
-        perplexities.append(perplexity)
-        logging.info(f"LDA Model with k={k} Perplexity: {perplexity:.4f}")
+        model = LDA(k=k, maxIter=20, seed=SEED, featuresCol="features").fit(sentences_with_features)
+        transformed = model.transform(sentences_with_features)
+        transformed = transformed.withColumn("features", col("topicDistribution"))
+        transformed = transformed.withColumn("cluster", get_dominant_topic(col("topicDistribution")))
+
+        reduced_df = dimensionality_reduction(transformed)
+        visualize_clusters_and_save(reduced_df, k=k, filename=f"Outputs/tsne_clusters_k={k}_LDA.csv", algorithm="LDA")
+        generate_wordclouds(transformed.select("tokens", "cluster"), "cluster", output_dir=f"Outputs/wordclouds_lda_k={k}")
+
 
     # Convert to pandas dataframd and save to CSV for local testing
     # and debugging
