@@ -15,15 +15,21 @@ Requirements:
 import logging
 import os
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import spacy
 import torch
 from pyspark.ml.clustering import LDA, KMeans
 from pyspark.ml.feature import CountVectorizer
 from pyspark.ml.linalg import Vectors, VectorUDT
 from pyspark.sql import DataFrame, SparkSession
-from pyspark.sql.functions import col, udf
+from pyspark.sql.functions import col, collect_list, concat_ws, udf
 from pyspark.sql.types import ArrayType, DoubleType, StringType
+from sklearn.manifold import TSNE
+from sklearn.metrics import silhouette_score
 from transformers import AutoModel, AutoTokenizer
+from wordcloud import WordCloud
 
 DATA_PATH = "data/labeled_starter.csv"
 SEED = 314159
@@ -153,16 +159,63 @@ def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 20):
     return lda_model, perplexity
 
 
-def evaluate_clusters():
-    """Get cluster purity or eval."""
-    pass
+def visualize_clusters_and_save(reduced_df, filename="Outputs/tsne_clusters.csv"):
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    scatter = ax.scatter(reduced_df['x'], reduced_df['y'], reduced_df['z'], c=reduced_df['cluster'], cmap='tab10')
+    ax.set_title("t-SNE Clustering Visualization")
+    plt.legend(*scatter.legend_elements(), title="Clusters")
+    plt.savefig("Outputs/tsne_clusters.png")
+    plt.close()
+    reduced_df.to_csv(filename, index=False)
+    logging.info(f"Saved 3D cluster visualization data to {filename}")
 
-def dimensionality_reduction():
-    pass
+def evaluate_clusters(clustered_data):
+    pandas_df = clustered_data.select("features", "prediction").toPandas()
+    X = pandas_df["features"].apply(lambda x: list(map(float, x))).tolist()
+    y = pandas_df["prediction"].tolist()
+
+    score = silhouette_score(X, y)
+    logging.info(f"Silhouette Score: {score:.4f}")
+    return score
+
+def generate_wordclouds(clustered_data, cluster_col, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+
+    grouped_data = clustered_data.groupBy(cluster_col).agg(
+        concat_ws(" ", collect_list("sentence")).alias("cluster_text")
+    )
+    grouped_data_pd = grouped_data.toPandas()
+
+    for _, row in grouped_data_pd.iterrows():
+        cluster_label = row[cluster_col]
+        cluster_text = row["cluster_text"]
+
+        wordcloud = WordCloud(width=1600, height=800, background_color="white",
+                              collocations=False, colormap="tab10").generate(cluster_text)
+
+        plt.figure(figsize=(12, 6))
+        plt.imshow(wordcloud, interpolation="bilinear")
+        plt.axis("off")
+        plt.tight_layout(pad=0)
+        plt.savefig(os.path.join(output_dir, f"wordcloud_cluster_{cluster_label}.png"), dpi=300)
+        plt.close()
+
+def dimensionality_reduction(clustered_data):
+    pandas_df = clustered_data.select("features", "cluster").toPandas()
+
+    # Convert list of lists to numpy array
+    X = np.array(pandas_df["features"].tolist())
+    y = pandas_df["cluster"].tolist()
+    
+    tsne = TSNE(n_components=3, random_state=SEED)
+    X_tsne = tsne.fit_transform(X)
+
+    result_df = pd.DataFrame(X_tsne, columns=["x", "y", "z"])
+    result_df["cluster"] = y
+    return result_df
 
 
-def visualize_clusters_and_save():
-    """This function creates a 3D scatter plot of the clusters and saves the datapoints belonging to each cluster in a CSV file."""
 
 def main():
 
@@ -200,15 +253,13 @@ def main():
 
     # TODO(P1): Perform NER to remove medication names or use a list. 
     
-    # Extract term frequency features
-    sentences_with_features = extract_features(sentences, vocab_size=5000, min_df=2)
-
     # TODO: Put this in a for loop with different hyperparameters
 
     #TODO: Evaluation On LDA best fit
-    dimensionality_reduction()
-    evaluate_clusters()
-    visualize_clusters_and_save()
+    # evaluate_clusters()
+    # visualize_clusters_and_save()
+    # dimensionality_reduction()
+
 
     ## K-means ##
 
@@ -219,7 +270,7 @@ def main():
 
     logging.info("Beginning KMeans clustering.")
     # Try multiple values of k for Kmeans.
-    for k in [4, 5]:
+    for k in [4, 5, 6]:
 
         k_model, clustered_data = kmeans(sentences_with_embeddings, k=k)
         kmeans_models.append(k_model)
@@ -229,19 +280,26 @@ def main():
         logging.info(f"Columns in clustered_data: {clustered_data.columns}")
 
         # Save the clustered data with cluster labels
-        clustered_data = clustered_data.select("sentence", "tokens", col(f"prediction_{k}").alias("cluster"))
+        clustered_data = clustered_data.select("sentence", "tokens", "features", col(f"prediction_{k}").alias("cluster"))
 
-        clustered_data_pd = clustered_data.toPandas()  # Convert to pandas DataFrame
-        clustered_data_pd.to_csv(f"Outputs/kmeans_clusters_k{k}.csv", index=False)  # Save to CSV
-        logging.info(f"Saved KMeans clusters with k={k} to Outputs/kmeans_clusters_k{k}.csv")
+        # Save to CSV for local testing and inspection.
+        # clustered_data_pd = clustered_data.toPandas()  # Convert to pandas DataFrame
+        # clustered_data_pd.to_csv(f"Outputs/kmeans_clusters_k{k}.csv", index=False)  # Save to CSV
+        # logging.info(f"Saved KMeans clusters with k={k} to Outputs/kmeans_clusters_k{k}.csv")
 
         logging.info(f"Kmeans Model with k={k} with clusters: {k_model.clusterCenters()}")
 
-    dimensionality_reduction()
-    evaluate_clusters()
+        reduced_df = dimensionality_reduction(clustered_data)
 
-    visualize_clusters_and_save()
-    spark.stop()
+        visualize_clusters_and_save(reduced_df, filename=f"Outputs/tsne_clusters_k={k}.csv")
+        
+        evaluate_clusters(clustered_data)
+        
+        generate_wordclouds(clustered_data.select("sentence", "prediction"), "prediction", output_dir=f"Outputs/wordclouds_k={k}")
+
+    # evaluate_clusters()
+    # visualize_clusters_and_save()
+    # dimensionality_reduction()
 
     # unpersist
     sentences.unpersist()

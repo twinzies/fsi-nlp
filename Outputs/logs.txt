@@ -1,532 +1,801 @@
-2025-05-19 08:18:50,149 - INFO - Number of sentences in dataframe: 51834
-2025-05-19 08:18:50,149 - INFO - Preprocessing sentences...
-2025-05-19 08:21:46,399 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-2025-05-19 08:21:46,401 - INFO - Closing down clientserver connection
-2025-05-19 08:21:46,401 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 08:21:46,401 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-2025-05-19 08:21:46,403 - INFO - Closing down clientserver connection
-2025-05-19 08:21:46,403 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 08:21:46,403 - INFO - Closing down clientserver connection
-2025-05-19 08:21:46,407 - INFO - Closing down clientserver connection
-2025-05-19 08:22:32,238 - INFO - Number of sentences in dataframe: 2000
-2025-05-19 08:22:32,238 - INFO - Preprocessing sentences...
-2025-05-19 08:23:24,175 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-2025-05-19 08:23:24,176 - INFO - Closing down clientserver connection
-2025-05-19 08:23:24,176 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 08:23:24,177 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-2025-05-19 08:23:24,179 - INFO - Closing down clientserver connection
-2025-05-19 08:23:24,179 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 08:23:24,180 - INFO - Closing down clientserver connection
-2025-05-19 08:23:24,183 - INFO - Closing down clientserver connection
-2025-05-19 08:30:28,920 - INFO - Number of sentences in dataframe: 2000
-2025-05-19 08:30:28,921 - INFO - Preprocessing sentences...
-2025-05-19 08:38:57,612 - INFO - Number of processed sentences: 1872
-2025-05-19 08:38:57,618 - INFO - Closing down clientserver connection
-2025-05-19 08:49:43,663 - INFO - Number of sentences in dataframe: 2000
-2025-05-19 08:49:43,664 - INFO - Preprocessing sentences...
-2025-05-19 08:51:28,180 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-2025-05-19 08:51:28,185 - INFO - Closing down clientserver connection
-2025-05-19 08:51:28,185 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 08:51:28,187 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-2025-05-19 08:51:28,192 - INFO - Closing down clientserver connection
-2025-05-19 08:51:28,192 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 08:51:28,192 - INFO - Closing down clientserver connection
-2025-05-19 08:51:28,200 - INFO - Closing down clientserver connection
-2025-05-19 08:51:51,723 - INFO - Number of sentences in dataframe: 200
-2025-05-19 08:51:51,724 - INFO - Preprocessing sentences...
-2025-05-19 08:52:44,547 - INFO - Number of processed sentences: 200
-2025-05-19 08:52:44,550 - INFO - Closing down clientserver connection
-2025-05-19 09:05:29,159 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:05:29,159 - INFO - Preprocessing sentences with Spark-native functions...
-2025-05-19 09:05:29,253 - INFO - Number of processed sentences: 200
-2025-05-19 09:05:29,254 - INFO - Closing down clientserver connection
-2025-05-19 09:06:56,136 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:06:56,137 - INFO - Preprocessing sentences with Spark-native functions...
-2025-05-19 09:06:56,247 - INFO - Number of processed sentences: 200
-2025-05-19 09:06:56,455 - INFO - Closing down clientserver connection
-2025-05-19 09:08:00,115 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:08:00,115 - INFO - Preprocessing sentences with Spark-native functions...
-2025-05-19 09:08:00,211 - INFO - Number of processed sentences: 200
-2025-05-19 09:08:00,415 - INFO - Closing down clientserver connection
-2025-05-19 09:11:01,411 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:11:01,412 - INFO - Preprocessing sentences with Spark-native functions for scalability.
-2025-05-19 09:11:01,510 - INFO - Number of processed sentences: 200
-2025-05-19 09:11:01,711 - INFO - Closing down clientserver connection
-2025-05-19 09:17:16,824 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:17:16,824 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
-2025-05-19 09:17:16,997 - INFO - Number of processed sentences: 200
-2025-05-19 09:17:17,194 - INFO - Closing down clientserver connection
-2025-05-19 09:17:58,450 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:17:58,450 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
-2025-05-19 09:17:58,619 - INFO - Number of processed sentences: 200
-2025-05-19 09:17:58,806 - INFO - Closing down clientserver connection
-2025-05-19 09:21:29,072 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:21:29,073 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
-2025-05-19 09:21:29,230 - INFO - Number of processed sentences: 200
-2025-05-19 09:21:29,344 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 09:21:29,515 - INFO - Closing down clientserver connection
-2025-05-19 09:25:33,900 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:25:33,900 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
-2025-05-19 09:25:34,066 - INFO - Number of processed sentences: 200
-2025-05-19 09:25:34,187 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 09:25:34,427 - INFO - NumExpr defaulting to 8 threads.
-2025-05-19 09:25:34,832 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
-2025-05-19 09:25:34,833 - INFO - Closing down clientserver connection
-2025-05-19 09:28:59,370 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:28:59,370 - INFO - Preprocessing sentences with Spark-native functions...
-2025-05-19 09:28:59,557 - INFO - Number of processed sentences: 200
-2025-05-19 09:28:59,558 - INFO - Closing down clientserver connection
-2025-05-19 09:35:17,718 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:35:17,718 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 09:35:20,426 - INFO - Number of processed sentences: 200
-2025-05-19 09:35:20,428 - INFO - Closing down clientserver connection
-2025-05-19 09:36:26,338 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:36:26,338 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 09:36:29,088 - INFO - Number of processed sentences: 200
-2025-05-19 09:36:30,968 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 09:36:31,189 - INFO - NumExpr defaulting to 8 threads.
-2025-05-19 09:36:33,211 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
-2025-05-19 09:36:33,213 - INFO - Closing down clientserver connection
-2025-05-19 09:47:48,389 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:47:48,389 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 09:47:51,078 - INFO - Number of processed sentences: 200
-2025-05-19 09:47:52,879 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 09:47:53,103 - INFO - NumExpr defaulting to 8 threads.
-2025-05-19 09:47:55,078 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
-2025-05-19 09:47:56,031 - INFO - Closing down clientserver connection
-2025-05-19 09:59:27,592 - INFO - Number of sentences in dataframe: 200
-2025-05-19 09:59:27,592 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 09:59:30,659 - INFO - Number of processed sentences: 200
-2025-05-19 09:59:30,700 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 09:59:30,918 - INFO - NumExpr defaulting to 8 threads.
-2025-05-19 09:59:31,149 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
-2025-05-19 09:59:31,542 - INFO - Closing down clientserver connection
-2025-05-19 10:34:19,767 - INFO - Number of sentences in dataframe: 200
-2025-05-19 10:34:19,768 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 10:34:22,619 - INFO - Number of processed sentences: 200
-2025-05-19 10:34:22,662 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 10:34:22,999 - INFO - Running LDA with k=5, maxIter=20
-2025-05-19 10:34:25,199 - INFO - Top terms per topic:
-2025-05-19 10:34:25,220 - INFO - Topic 0: [0, 11, 22, 19, 35, 45, 23, 32, 65, 12]
-2025-05-19 10:34:25,220 - INFO - Topic 1: [1, 2, 8, 10, 9, 4, 14, 13, 25, 15]
-2025-05-19 10:34:25,220 - INFO - Topic 2: [6, 5, 7, 3, 20, 29, 21, 42, 47, 41]
-2025-05-19 10:34:25,220 - INFO - Topic 3: [97, 105, 231, 89, 96, 190, 259, 213, 278, 122]
-2025-05-19 10:34:25,220 - INFO - Topic 4: [70, 125, 122, 112, 43, 83, 76, 93, 5, 100]
-2025-05-19 10:34:25,239 - INFO - LDA Model with k=5 Perplexity: 5.7354
-2025-05-19 10:34:25,239 - INFO - Running LDA with k=10, maxIter=20
-2025-05-19 10:34:26,235 - INFO - Top terms per topic:
-2025-05-19 10:34:26,241 - INFO - Topic 0: [0, 11, 22, 35, 23, 12, 50, 65, 62, 81]
-2025-05-19 10:34:26,241 - INFO - Topic 1: [1, 2, 9, 8, 13, 15, 4, 14, 18, 10]
-2025-05-19 10:34:26,241 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
-2025-05-19 10:34:26,241 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
-2025-05-19 10:34:26,241 - INFO - Topic 4: [0, 6, 3, 19, 20, 21, 1, 47, 29, 42]
-2025-05-19 10:34:26,241 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
-2025-05-19 10:34:26,241 - INFO - Topic 6: [1, 2, 10, 69, 25, 74, 96, 33, 0, 120]
-2025-05-19 10:34:26,241 - INFO - Topic 7: [5, 7, 17, 16, 27, 46, 28, 158, 48, 58]
-2025-05-19 10:34:26,241 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
-2025-05-19 10:34:26,241 - INFO - Topic 9: [79, 224, 94, 99, 92, 180, 241, 130, 139, 72]
-2025-05-19 10:34:26,254 - INFO - LDA Model with k=10 Perplexity: 6.7556
-2025-05-19 10:34:26,254 - INFO - Running LDA with k=15, maxIter=20
-2025-05-19 10:34:27,206 - INFO - Top terms per topic:
-2025-05-19 10:34:27,212 - INFO - Topic 0: [0, 11, 22, 19, 35, 2, 32, 23, 12, 65]
-2025-05-19 10:34:27,213 - INFO - Topic 1: [1, 2, 9, 8, 13, 14, 15, 4, 18, 26]
-2025-05-19 10:34:27,213 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
-2025-05-19 10:34:27,213 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
-2025-05-19 10:34:27,213 - INFO - Topic 4: [47, 205, 182, 171, 253, 159, 213, 128, 77, 187]
-2025-05-19 10:34:27,213 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
-2025-05-19 10:34:27,213 - INFO - Topic 6: [185, 69, 155, 10, 122, 178, 47, 48, 86, 120]
-2025-05-19 10:34:27,213 - INFO - Topic 7: [133, 76, 217, 106, 168, 265, 162, 96, 41, 147]
-2025-05-19 10:34:27,213 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
-2025-05-19 10:34:27,213 - INFO - Topic 9: [126, 241, 101, 11, 275, 88, 80, 250, 63, 3]
-2025-05-19 10:34:27,213 - INFO - Topic 10: [262, 144, 145, 126, 147, 245, 177, 226, 119, 221]
-2025-05-19 10:34:27,213 - INFO - Topic 11: [1, 6, 3, 10, 20, 0, 41, 2, 21, 29]
-2025-05-19 10:34:27,213 - INFO - Topic 12: [247, 173, 129, 81, 277, 157, 57, 146, 29, 147]
-2025-05-19 10:34:27,213 - INFO - Topic 13: [5, 7, 16, 17, 27, 46, 28, 158, 48, 58]
-2025-05-19 10:34:27,213 - INFO - Topic 14: [136, 54, 225, 1, 219, 30, 24, 246, 205, 40]
-2025-05-19 10:34:27,223 - INFO - LDA Model with k=15 Perplexity: 8.2095
-2025-05-19 10:34:27,379 - INFO - NumExpr defaulting to 8 threads.
-2025-05-19 10:34:27,572 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
-2025-05-19 10:34:27,667 - INFO - Running LDA with k=5, maxIter=20
-2025-05-19 10:34:28,510 - INFO - Top terms per topic:
-2025-05-19 10:34:28,515 - INFO - Topic 0: [0, 11, 22, 19, 35, 45, 23, 32, 65, 12]
-2025-05-19 10:34:28,515 - INFO - Topic 1: [1, 2, 8, 10, 9, 4, 14, 13, 25, 15]
-2025-05-19 10:34:28,515 - INFO - Topic 2: [6, 5, 7, 3, 20, 29, 21, 42, 47, 41]
-2025-05-19 10:34:28,515 - INFO - Topic 3: [97, 105, 231, 89, 96, 190, 259, 213, 278, 122]
-2025-05-19 10:34:28,515 - INFO - Topic 4: [70, 125, 122, 112, 43, 83, 76, 93, 5, 100]
-2025-05-19 10:34:28,524 - INFO - Running LDA with k=10, maxIter=20
-2025-05-19 10:34:29,260 - INFO - Top terms per topic:
-2025-05-19 10:34:29,266 - INFO - Topic 0: [0, 11, 22, 35, 23, 12, 50, 65, 62, 81]
-2025-05-19 10:34:29,266 - INFO - Topic 1: [1, 2, 9, 8, 13, 15, 4, 14, 18, 10]
-2025-05-19 10:34:29,266 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
-2025-05-19 10:34:29,266 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
-2025-05-19 10:34:29,266 - INFO - Topic 4: [0, 6, 3, 19, 20, 21, 1, 47, 29, 42]
-2025-05-19 10:34:29,267 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
-2025-05-19 10:34:29,267 - INFO - Topic 6: [1, 2, 10, 69, 25, 74, 96, 33, 0, 120]
-2025-05-19 10:34:29,267 - INFO - Topic 7: [5, 7, 17, 16, 27, 46, 28, 158, 48, 58]
-2025-05-19 10:34:29,267 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
-2025-05-19 10:34:29,267 - INFO - Topic 9: [79, 224, 94, 99, 92, 180, 241, 130, 139, 72]
-2025-05-19 10:34:29,274 - INFO - Running LDA with k=15, maxIter=20
-2025-05-19 10:34:30,174 - INFO - Top terms per topic:
-2025-05-19 10:34:30,182 - INFO - Topic 0: [0, 11, 22, 19, 35, 2, 32, 23, 12, 65]
-2025-05-19 10:34:30,183 - INFO - Topic 1: [1, 2, 9, 8, 13, 14, 15, 4, 18, 26]
-2025-05-19 10:34:30,183 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
-2025-05-19 10:34:30,183 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
-2025-05-19 10:34:30,183 - INFO - Topic 4: [47, 205, 182, 171, 253, 159, 213, 128, 77, 187]
-2025-05-19 10:34:30,183 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
-2025-05-19 10:34:30,183 - INFO - Topic 6: [185, 69, 155, 10, 122, 178, 47, 48, 86, 120]
-2025-05-19 10:34:30,183 - INFO - Topic 7: [133, 76, 217, 106, 168, 265, 162, 96, 41, 147]
-2025-05-19 10:34:30,183 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
-2025-05-19 10:34:30,183 - INFO - Topic 9: [126, 241, 101, 11, 275, 88, 80, 250, 63, 3]
-2025-05-19 10:34:30,183 - INFO - Topic 10: [262, 144, 145, 126, 147, 245, 177, 226, 119, 221]
-2025-05-19 10:34:30,183 - INFO - Topic 11: [1, 6, 3, 10, 20, 0, 41, 2, 21, 29]
-2025-05-19 10:34:30,183 - INFO - Topic 12: [247, 173, 129, 81, 277, 157, 57, 146, 29, 147]
-2025-05-19 10:34:30,183 - INFO - Topic 13: [5, 7, 16, 17, 27, 46, 28, 158, 48, 58]
-2025-05-19 10:34:30,183 - INFO - Topic 14: [136, 54, 225, 1, 219, 30, 24, 246, 205, 40]
-2025-05-19 10:34:30,532 - INFO - Closing down clientserver connection
-2025-05-19 10:37:24,777 - INFO - Number of sentences in dataframe: 200
-2025-05-19 10:37:24,777 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 10:37:27,672 - INFO - Number of processed sentences: 200
-2025-05-19 10:37:27,715 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 10:37:28,055 - INFO - Running LDA with k=5, maxIter=20
-2025-05-19 10:37:30,277 - INFO - Closing down clientserver connection
-2025-05-19 10:42:28,877 - INFO - Number of sentences in dataframe: 200
-2025-05-19 10:42:28,877 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 10:42:30,014 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-2025-05-19 10:42:30,015 - INFO - Closing down clientserver connection
-2025-05-19 10:42:30,015 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: reentrant call inside <_io.BufferedReader name=7>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 10:42:30,018 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-2025-05-19 10:42:30,020 - INFO - Closing down clientserver connection
-2025-05-19 10:42:30,020 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-                          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-    ^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-                   ^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
-    return f(*a, **kw)
-           ^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o13.sc
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-05-19 10:42:30,020 - INFO - Closing down clientserver connection
-2025-05-19 10:42:30,026 - INFO - Closing down clientserver connection
-2025-05-19 10:44:12,249 - INFO - Number of sentences in dataframe: 200
-2025-05-19 10:44:12,250 - INFO - Preprocessing sentences with spaCy NLP...
-2025-05-19 10:44:15,128 - INFO - Number of processed sentences: 200
-2025-05-19 10:44:15,180 - INFO - [DEBUG] Row count before writing CSV: 200
-2025-05-19 10:44:15,509 - INFO - Running LDA with k=5, maxIter=20
-2025-05-19 10:44:18,306 - INFO - Topic 0: walk, able, stair, activity, sudden, right, leg, week, trouble, difficulty
-2025-05-19 10:44:18,307 - INFO - Topic 1: ambulate, pain, control, discharge, tolerate, patient, assistance, diet, oral, medication
-2025-05-19 10:44:18,307 - INFO - Topic 2: day, run, incision, time, continue, amount, rest, plenty, drink, adequate
-2025-05-19 10:44:18,307 - INFO - Topic 3: give, brace, pressure, admission, baseline, low, wear, htn, normal, avoid
-2025-05-19 10:44:18,307 - INFO - Topic 4: follow, strenuous, avoid, heavy, lifting, exercise, recommend, climbing, run, appointment
-2025-05-19 10:44:18,307 - INFO - LDA Model with k=5 Perplexity: 5.7354
-2025-05-19 10:44:18,307 - INFO - Running LDA with k=10, maxIter=20
-2025-05-19 10:44:19,377 - INFO - Topic 0: walk, able, stair, sudden, leg, difficulty, stand, trouble, weakness, fall
-2025-05-19 10:44:19,377 - INFO - Topic 1: ambulate, pain, tolerate, control, diet, medication, patient, assistance, regular, discharge
-2025-05-19 10:44:19,377 - INFO - Topic 2: saturation, continue, orient, ambulated, towel, let, wife, loss, spirometer, plenty
-2025-05-19 10:44:19,377 - INFO - Topic 3: normal, avoid, difficult, need, weakness, pass, shortness, limit, stable, confusion
-2025-05-19 10:44:19,377 - INFO - Topic 4: walk, day, time, activity, continue, rest, ambulate, drink, amount, plenty
-2025-05-19 10:44:19,377 - INFO - Topic 5: comfortably, recovery, correct, yellow, secondary, heavy, month, give, admission, appear
-2025-05-19 10:44:19,377 - INFO - Topic 6: ambulate, pain, discharge, heal, oral, analgesic, baseline, walker, walk, hip
-2025-05-19 10:44:19,377 - INFO - Topic 7: run, incision, shower, water, dry, pat, soapy, family, let, allow
-2025-05-19 10:44:19,377 - INFO - Topic 8: shortness, dressing, warm, rehab, mobilization, frequently, say, get, mouth, analgesic
-2025-05-19 10:44:19,377 - INFO - Topic 9: visit, towel, afebrile, need, ago, small, complete, procedure, bathroom, gait
-2025-05-19 10:44:19,377 - INFO - LDA Model with k=10 Perplexity: 6.7556
-2025-05-19 10:44:19,377 - INFO - Running LDA with k=15, maxIter=20
-2025-05-19 10:44:20,446 - INFO - Topic 0: walk, able, stair, activity, sudden, pain, week, leg, difficulty, trouble
-2025-05-19 10:44:20,447 - INFO - Topic 1: ambulate, pain, tolerate, control, diet, assistance, medication, patient, regular, void
-2025-05-19 10:44:20,447 - INFO - Topic 2: saturation, continue, orient, ambulated, towel, let, wife, loss, spirometer, plenty
-2025-05-19 10:44:20,447 - INFO - Topic 3: normal, avoid, difficult, need, weakness, pass, shortness, limit, stable, confusion
-2025-05-19 10:44:20,447 - INFO - Topic 4: drink, indicate, dizziness, sternal, push, daily, htn, mouth, minute, find
-2025-05-19 10:44:20,447 - INFO - Topic 5: comfortably, recovery, correct, yellow, secondary, heavy, month, give, admission, appear
-2025-05-19 10:44:20,447 - INFO - Topic 6: ambulated, heal, acute, discharge, avoid, aresa, drink, let, report, hip
-2025-05-19 10:44:20,447 - INFO - Topic 7: spray, recommend, hospital, condition, result, turning, change, baseline, adequate, followup
-2025-05-19 10:44:20,447 - INFO - Topic 8: shortness, dressing, warm, rehab, mobilization, frequently, say, get, mouth, analgesic
-2025-05-19 10:44:20,448 - INFO - Topic 9: block, complete, stop, able, doe, symptom, worsen, onset, unable, time
-2025-05-19 10:44:20,448 - INFO - Topic 10: room, chest, start, block, followup, talk, pass, line, excessive, clinic
-2025-05-19 10:44:20,448 - INFO - Topic 11: ambulate, day, time, discharge, continue, walk, adequate, pain, rest, amount
-2025-05-19 10:44:20,448 - INFO - Topic 12: lbs, brief, boot, fall, frequency, prior, drainage, left, amount, followup
-2025-05-19 10:44:20,448 - INFO - Topic 13: run, incision, water, shower, dry, pat, soapy, family, let, allow
-2025-05-19 10:44:20,448 - INFO - Topic 14: incentive, bed, oxygen, ambulate, spirometer, encourage, sit, saturation, indicate, use
-2025-05-19 10:44:20,448 - INFO - LDA Model with k=15 Perplexity: 8.2095
-2025-05-19 10:44:20,605 - INFO - NumExpr defaulting to 8 threads.
-2025-05-19 10:44:20,790 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
-2025-05-19 10:44:21,456 - INFO - Closing down clientserver connection
+2025-05-19 17:14:07,715 - INFO - Number of sentences in dataframe: 200
+2025-05-19 17:14:07,715 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 17:14:10,612 - INFO - Number of processed sentences: 200
+2025-05-19 17:14:10,651 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 17:14:10,976 - INFO - Running LDA with k=3, maxIter=20
+2025-05-19 17:14:13,542 - INFO - Topic 0: walk, able, stair, activity, right, week, sudden, leg, trouble, increase
+2025-05-19 17:14:13,543 - INFO - Topic 1: ambulate, pain, control, discharge, tolerate, patient, assistance, diet, oral, medication
+2025-05-19 17:14:13,543 - INFO - Topic 2: day, run, incision, time, continue, amount, rest, plenty, drink, adequate
+2025-05-19 17:14:13,543 - INFO - LDA Model with k=3 Perplexity: 5.4339
+2025-05-19 17:14:13,543 - INFO - Running LDA with k=4, maxIter=20
+2025-05-19 17:14:14,563 - INFO - Topic 0: walk, able, stair, activity, sudden, right, week, leg, trouble, pain
+2025-05-19 17:14:14,563 - INFO - Topic 1: ambulate, pain, control, discharge, tolerate, patient, assistance, diet, oral, medication
+2025-05-19 17:14:14,563 - INFO - Topic 2: day, incision, time, run, continue, ambulate, amount, rest, plenty, drink
+2025-05-19 17:14:14,563 - INFO - Topic 3: run, follow, avoid, exercise, strenuous, climbing, lifting, appointment, recommend, give
+2025-05-19 17:14:14,563 - INFO - LDA Model with k=4 Perplexity: 5.5604
+2025-05-19 17:14:14,563 - INFO - Running LDA with k=5, maxIter=20
+2025-05-19 17:14:15,446 - INFO - Topic 0: walk, able, stair, activity, sudden, right, leg, week, trouble, difficulty
+2025-05-19 17:14:15,446 - INFO - Topic 1: ambulate, pain, control, discharge, tolerate, patient, assistance, diet, oral, medication
+2025-05-19 17:14:15,446 - INFO - Topic 2: day, run, incision, time, continue, amount, rest, plenty, drink, adequate
+2025-05-19 17:14:15,446 - INFO - Topic 3: give, brace, pressure, admission, baseline, low, wear, htn, normal, avoid
+2025-05-19 17:14:15,446 - INFO - Topic 4: follow, strenuous, avoid, heavy, lifting, exercise, recommend, climbing, run, appointment
+2025-05-19 17:14:15,446 - INFO - LDA Model with k=5 Perplexity: 5.7354
+2025-05-19 17:14:15,446 - INFO - Running LDA with k=8, maxIter=20
+2025-05-19 17:14:16,412 - INFO - Topic 0: walk, able, stair, sudden, leg, difficulty, trouble, stand, weakness, pain
+2025-05-19 17:14:16,412 - INFO - Topic 1: ambulate, pain, tolerate, control, diet, medication, assistance, patient, regular, void
+2025-05-19 17:14:16,412 - INFO - Topic 2: saturation, spirometer, encourage, sit, patient, incentive, oxygen, indicate, level, monitor
+2025-05-19 17:14:16,412 - INFO - Topic 3: normal, avoid, difficult, need, weakness, pass, shortness, limit, stable, confusion
+2025-05-19 17:14:16,412 - INFO - Topic 4: drink, indicate, dizziness, sternal, push, daily, htn, mouth, minute, find
+2025-05-19 17:14:16,412 - INFO - Topic 5: day, walk, time, continue, activity, rest, ambulate, fluid, drink, adequate
+2025-05-19 17:14:16,412 - INFO - Topic 6: ambulate, pain, discharge, heal, oral, analgesic, baseline, walker, time, hip
+2025-05-19 17:14:16,412 - INFO - Topic 7: run, incision, shower, water, dry, pat, soapy, family, let, allow
+2025-05-19 17:14:16,412 - INFO - LDA Model with k=8 Perplexity: 6.2530
+2025-05-19 17:14:19,391 - INFO - Beginning KMeans clustering.
+2025-05-19 17:14:19,391 - INFO - Running KMeans with k=4
+2025-05-19 17:14:46,134 - INFO - Columns in clustered_data: ['sentence', 'labels', 'tokens', 'features', 'features_vec', 'prediction_4']
+2025-05-19 17:14:46,154 - INFO - Kmeans Model with k=4 with clusters: [array([ 3.01552125e-01,  6.81455825e-02, -2.12213321e-01,  4.19989802e-02,
+        1.76647126e-01,  4.58583815e-02,  1.54447126e-01,  9.09029617e-02,
+       -1.01904823e-02,  1.01310118e-01,  2.64211992e-03,  2.32949529e-01,
+       -4.38536796e-02,  8.65600792e-02, -2.24529687e-01,  6.40900070e-03,
+        4.84738454e-02, -1.99036966e-01, -1.83090794e-01, -1.84662781e-01,
+        1.61883051e-02, -1.64838838e-01, -1.37416201e-01, -2.18172572e-01,
+       -1.29977879e-01, -2.30115523e-01,  2.85510407e-01,  5.70591642e-01,
+       -3.67674316e-02,  3.34431704e-01, -1.19363607e-02,  2.35039034e-01,
+       -2.58887839e-01,  6.17106302e-02, -2.02347552e-01,  1.56088247e-01,
+        3.13366034e-03,  1.88563931e-01,  1.28399172e-01,  1.83792231e-01,
+        1.38820319e-01, -7.80192344e-02,  1.76638848e-01,  3.29528824e-01,
+        1.02738380e-01, -7.50357829e-02, -1.40600400e-02, -2.59283903e-01,
+       -5.46577224e-01,  2.59985247e-01,  5.43049189e-02,  1.62606498e-01,
+        2.93768505e-01, -2.23302020e-02,  6.52657227e-02, -2.60347163e-01,
+       -2.56900790e-01, -1.62427707e-01, -2.28738754e-02,  3.38078761e-01,
+        6.21944575e-02,  9.22647604e-02,  1.05009294e-01, -1.34002016e-01,
+       -4.56984580e-03,  1.06511411e-01,  2.15966612e-01, -1.37556570e-01,
+        1.19338847e-01, -2.52767438e-01, -2.18100187e-01, -3.78677941e-01,
+       -2.21386885e-02,  2.30345030e-02,  2.04242388e-01, -3.39399070e-02,
+        2.56993724e-01, -2.56522721e-02,  3.13007356e-01,  3.56884866e-01,
+        2.20958199e-01,  1.40240544e-01, -1.17709697e-01,  3.31530007e-01,
+       -4.70005123e-01,  4.94598909e-02, -1.62911676e-02, -5.04752884e-02,
+       -5.36432943e-02,  1.74186258e-01,  3.64358018e-02, -4.13692577e-01,
+        1.43499780e-02, -2.13081508e-02, -1.81537414e-02,  8.09943611e-02,
+       -3.21181490e-01,  2.79897058e-01, -3.13073835e-01, -1.44900509e-01,
+       -5.74003601e-02, -1.72361786e-01,  3.51683786e-02, -2.03166082e-01,
+        1.67971598e-01, -6.31448447e-02, -2.65121991e-02, -4.72335601e-01,
+       -2.20063140e-02,  3.97203766e-01, -7.16075803e-03, -2.58341643e-01,
+        2.32369209e-01, -7.66394307e-02, -1.43425860e-01, -2.95096303e-01,
+       -3.31912265e-03,  2.87569199e-01,  1.10921133e-01, -3.65818963e-02,
+        2.19591461e-01,  1.16968920e-01,  1.93688541e-01, -1.09408010e-01,
+        1.29246814e-01,  1.94760114e-02, -1.33011078e-01, -1.03979812e-01,
+        9.05146576e-02, -2.88649459e-02, -3.18393725e-01, -3.83184065e-02,
+        1.98438103e-01,  2.54212036e-03,  4.90879801e-02,  1.40786472e-01,
+       -6.24110248e-01,  3.30088381e-02, -1.11733180e+00, -1.84605023e-01,
+       -2.57669106e-01, -1.71799123e-02,  7.44206779e-02, -1.22871483e-01,
+        3.15009876e-02, -1.08424389e-01, -3.11561565e-01, -1.85405098e-01,
+        1.31294027e-01,  6.77807826e-03, -1.08932556e-01, -3.32843768e-01,
+        5.32018240e-02,  9.61762611e-02, -5.21186355e-03, -1.96900129e-01,
+        7.47060245e-03, -3.04114094e-03,  8.43384123e-02,  8.65540298e-02,
+        2.11715784e-01,  5.75576097e-03, -1.07972958e-01,  3.82237042e-02,
+        5.96840702e-02, -6.32019851e-02,  9.39720549e-02,  4.14468085e-03,
+        6.72462152e-02,  1.32603247e-01,  3.44603779e-02,  2.31597752e-01,
+       -9.95927987e-02,  4.88428042e-01,  4.39250163e-02,  5.50329984e-02,
+        1.22857823e-01, -7.56600085e-03,  6.36146642e-02,  2.00686196e-01,
+       -1.90884170e-03, -4.07969982e-02, -2.41137248e-01, -1.46539806e-01,
+       -1.23110003e-01, -4.62162329e-02,  1.14745669e-01, -2.61860561e-01,
+        1.49126174e-01,  2.36393843e-01, -4.23891340e-02, -2.65666577e-01,
+       -2.50530374e-01, -2.53600458e-01, -4.36901579e-01, -8.11741372e-02,
+       -1.13051965e-01, -1.38854865e-01,  1.33952020e-01, -4.50048525e-02,
+       -9.82250530e-03,  5.48065146e-02, -1.28153211e-01,  1.21443073e-01,
+        1.27415157e-01, -1.60898004e-01, -8.38115043e-02,  1.77426158e-01,
+       -4.23066329e-02, -2.14813631e-01, -1.27527563e-01, -1.20242414e-01,
+        3.17307071e-01, -9.26405911e-02, -5.00593040e-02, -2.07635848e-01,
+        6.83230555e-02, -1.75802690e-01,  4.85168501e-02,  3.76119950e-01,
+       -1.23421530e-01, -2.16809540e-01,  2.91678801e-02, -9.94013744e-03,
+       -2.03368924e-01,  1.38531785e-01,  1.01322938e-01,  1.29012920e-01,
+       -2.13781767e-02, -2.87392456e-01,  1.29520360e-01,  2.63106617e-01,
+        2.14631108e-02, -1.05539670e-01, -1.31712131e-01, -1.02641491e-04,
+       -1.99508892e-01, -6.74087241e-02, -5.18496720e-01, -1.42034209e-02,
+       -1.67839105e-01,  7.08466755e-02,  1.23348664e-01,  1.86964668e-01,
+       -1.31048011e-01,  2.77490575e-01, -1.84274565e-01,  9.53609479e-02,
+       -9.23445585e-02,  3.03409572e-01,  1.44483536e-01, -2.75747731e-01,
+       -1.50944006e-01, -3.66435451e-02,  2.20610713e-01, -5.41795536e-02,
+        1.59505591e-02,  4.56313229e-01, -1.33717004e-01, -2.35578100e-01,
+        2.86088724e-01, -1.03250567e-01,  8.35151280e-02, -2.27417995e-01,
+       -3.19183886e-02, -1.16905993e-01, -3.28888672e-01,  2.09531150e-01,
+       -2.69834407e-01,  5.23683002e-02, -1.43181863e-02, -1.66392359e-01,
+        8.71700064e-02,  1.93262252e-01,  1.80890449e-01,  1.53204591e-02,
+        4.64970817e-02,  1.83236595e-01,  1.95519484e-01, -2.75776818e-01,
+        3.75279427e-01, -3.41997224e-03, -1.37307013e-01, -8.26843451e-02,
+       -1.16881799e-01,  2.19593526e-01,  2.25952673e-01,  7.01245666e-02,
+       -2.12670499e-02, -1.06130074e-01,  1.18487765e-02,  2.11275474e-01,
+       -3.67351845e-01, -7.87279623e-02, -1.79439019e-01,  1.22196566e-01,
+       -2.97470944e-01,  1.67824136e-01, -1.43422305e-01,  6.83251813e-02,
+        2.02029330e-01,  1.67687536e-01,  1.62393803e-01,  2.42094729e-03,
+       -2.53769131e-01,  2.25006889e-01,  4.63453748e-02,  1.42373741e-01,
+        2.75434748e-01,  2.92206947e-01,  3.93727825e-01,  4.37743646e-02,
+       -5.58628851e-02, -1.36067585e-01, -2.12764087e-01, -1.50576811e-01,
+       -9.29403899e-02, -2.13182571e-03, -2.35243784e-01,  5.33169317e-02,
+        1.63018103e-01,  5.88519739e-02, -3.69769959e-02, -8.49921901e-02,
+        4.92917342e-03, -5.06549295e-02,  1.33242786e-01, -2.21302233e-01,
+        1.75672848e-01, -4.89076162e-03,  2.48439998e-01, -1.70590452e-02,
+       -8.84812041e-03, -1.57306347e-01, -1.11824289e-01,  1.25550080e-02,
+       -1.35708789e-01,  3.82687747e-01, -4.32672559e-01,  2.19819528e-01,
+        2.02263838e-01, -9.22110612e-03,  1.72042832e-01, -1.13720953e-01,
+        2.29532603e-01,  5.98102820e-02,  2.33306409e-03, -2.19145085e-01,
+        2.97475989e-01, -6.13088217e-02,  1.34338573e-02,  2.69003276e-02,
+       -6.76445997e-02,  8.78599075e-02,  2.43106033e-01, -3.29725207e-02,
+        1.23153905e-02,  1.93099371e-02,  1.45558307e-01, -1.74318410e-01,
+       -1.72999880e-01,  2.97629805e-02, -2.13656118e-02,  7.54759513e-02,
+        3.84060705e-02,  8.93292344e-02,  6.29201538e-02, -1.13106056e-01,
+       -1.52317218e-01,  4.49704270e-02,  2.00785131e-01, -4.74931032e-02,
+        2.32417281e-01, -1.23632057e-01,  5.89766890e-02,  8.44220597e-02,
+       -1.64488740e-02, -1.09720422e-01, -1.27434077e-01, -3.45036031e-01,
+       -1.88955844e-01,  1.43589155e-01,  1.65057884e-01, -3.88366605e-02,
+       -3.91848742e-02,  1.55022569e-01, -6.86454660e-02,  7.05170284e-02,
+        2.85823719e-01, -1.76573806e-01, -6.08544255e-02,  1.06758987e-01,
+       -2.62681299e-02, -2.30724581e-01, -3.86297245e-02,  1.71736901e-01,
+       -2.30433286e-01, -2.23005347e-02,  3.43998484e-02, -2.85809722e-01,
+       -1.84034183e-01,  5.81194713e-02, -3.89955533e-01,  1.41126726e-01,
+       -1.08348846e-01, -6.20731834e-02, -1.76680043e-01, -1.73251702e-01,
+       -1.90417621e-01,  5.73112863e-02, -1.70176832e-01, -3.17221446e-01,
+        2.68781006e-01,  1.42635925e-01,  1.60058747e-01, -3.56521967e-01,
+       -8.08141114e-02,  7.11514157e-02,  2.95185112e-01,  2.45724231e-01,
+       -1.49001216e-01,  8.51729306e-02,  1.23574739e-01,  4.15390922e-02,
+        1.61169593e-01, -3.60718753e-02, -5.08284358e-02, -1.28532799e-01,
+       -2.70634817e-01,  2.88244750e-01, -3.43868321e-02,  1.97722920e-02,
+        2.67250733e-01,  2.33210569e-02, -1.49368368e-01, -1.56028807e-01,
+       -7.39574064e-03, -1.34893374e-01,  6.16022864e-02, -3.06151576e-01,
+       -9.41421143e-03, -2.91901514e-02, -2.93577196e-02, -3.12267901e-01,
+       -2.94671498e-02, -1.22811862e-01,  1.81639070e-02,  2.00335446e-02,
+        8.16305182e-02,  1.13587555e-01,  6.62541407e-02, -9.01125864e-02,
+        1.39722557e-01,  1.94359350e-01,  3.84308654e-03, -3.57601560e-01,
+       -3.28380012e-02, -1.05770067e-01, -1.75978985e-01, -1.46368581e-03,
+       -8.33756623e-02, -2.72252863e-02, -1.49425040e-01,  3.09209673e-01,
+        1.78588938e-01, -1.31423749e-01,  3.00844064e-01,  1.93491418e-01,
+       -3.05060335e-02,  4.07215089e-01,  1.48035188e-01, -6.41225142e-02,
+        4.46276422e-01,  1.98540445e-01, -5.48607488e-02, -3.87152202e-01,
+       -3.55651973e-02,  1.02105278e-01,  2.20924012e-01,  4.09841080e-02,
+       -4.09778459e-03,  1.54233762e-01,  1.84578055e-02,  2.03709680e-01,
+        1.85015575e-01,  5.00528248e-02,  4.47568490e-01, -2.18171303e-01,
+        3.48259341e-01,  1.37439890e-01, -1.03804733e-01,  2.07061765e-01,
+       -2.31058476e-01,  1.17441578e-01,  5.39885819e-02,  1.98271978e-02,
+        6.02593213e-02, -1.83171005e-01, -2.57341082e-01, -3.39036427e-01,
+        1.45785407e-01, -2.96995765e-01, -1.43537927e-02,  8.44553150e-02,
+       -3.63124226e-01,  4.49729520e-02,  3.17089318e-02,  1.18447695e-01,
+        1.97376369e-01, -2.16664934e-01, -1.45199905e-02, -5.04122201e-01,
+        1.49132356e-02,  3.31575292e-01, -1.42856013e-01,  1.51242392e-02,
+       -2.04919256e-01,  2.33148934e-01,  2.32515060e-01, -1.22114801e-01,
+        1.97635775e-01, -1.87872623e-01, -6.88379768e-02,  2.26676152e-01,
+       -8.31099852e-02, -7.12759618e-02,  3.44222599e-01,  1.44922188e-01,
+       -1.77370928e-01, -1.66381868e-01,  6.14964192e-02,  2.01026356e-02,
+        1.59939468e-01, -2.63672462e-01,  2.90660308e-01, -7.63375774e-03,
+        1.68440713e-01,  5.24874042e-02, -4.10171869e-03,  1.27878853e-01,
+        8.20309770e-03, -1.47238348e-02,  1.76585341e-01, -2.59380912e-01,
+       -2.22518838e-01,  2.89676667e-01, -2.08119733e-01,  1.70455401e-01,
+       -3.82218313e-02,  4.20197060e-02,  2.53407688e-01,  2.16814445e-01,
+       -4.98418184e-01,  2.91963962e-01,  1.13958591e-01,  5.71629465e-02,
+       -3.37137460e-01, -9.59329302e+00,  7.95301415e-02, -6.39366305e-02,
+        1.33327017e-01, -1.93533543e-02, -9.71122943e-03,  4.45787993e-01,
+        6.69709956e-02, -9.57400905e-03,  6.16526118e-02, -1.08395896e-01,
+       -1.43302293e-01,  2.54139236e-01,  1.35123616e-01, -2.76911132e-03,
+       -5.58427203e-02, -8.79364694e-02,  1.79488084e-01,  2.75721057e-01,
+        1.54070908e-01, -5.23366131e-02,  4.20501819e-01,  1.87449229e-01,
+        6.78370873e-02, -1.62831279e-01,  2.06446362e-01, -1.05060937e-01,
+        5.09157305e-02, -8.68307067e-03, -1.19573219e-01, -1.67824624e-01,
+        1.13616240e-01, -2.85596668e-02, -1.90953754e-01,  1.28550118e-01,
+       -2.70317277e-01,  4.74863431e-02, -3.81015320e-03, -1.20059287e-01,
+       -3.32217991e-01,  7.37927422e-03, -1.04216904e-01, -6.85495193e-02,
+       -6.35490168e-02,  1.76497003e-01, -1.92964828e-01, -7.13390109e-02,
+       -1.39198627e-01, -2.72418485e-01,  6.26862795e-02,  3.85677055e-01,
+        2.60540272e-01,  1.91119183e-01, -1.34776697e-01, -3.81773217e-01,
+        8.54769991e-02,  1.01506769e-01,  5.12374424e-01,  5.79652280e-02,
+       -1.03510392e-01,  4.40053742e-02,  1.71081969e-02,  5.15142801e-01,
+       -1.67489251e-01, -6.61532000e-02,  1.93739956e-01, -1.52073480e-01,
+        5.35954063e-02,  1.21876723e-01, -4.28035731e-02, -1.63055042e-01,
+       -5.20390321e-02, -1.78887755e-02, -1.79455667e-01,  1.83039213e-01,
+       -1.22491591e-01,  1.57349002e-02,  2.61362999e-01,  2.12997099e-01,
+        6.09850354e-02, -1.41704969e-01,  6.29989428e-02,  1.81362598e-01,
+       -1.82022970e-01,  6.09936803e-02, -2.77516983e-01, -2.24915361e-01,
+        2.01935628e-01,  2.55123163e-01, -1.17999111e-01,  8.36017691e-02,
+        1.02222626e-01,  6.02277767e-02, -3.15714878e-01, -1.63999712e-01,
+        7.71458447e-02,  9.41022074e-02, -1.72248462e-01, -1.75246837e-02,
+        1.40029295e-01, -1.25791521e-01,  2.95549470e-03,  2.50291186e-01,
+        1.44796434e-01, -2.39339516e-01,  3.87634164e-01,  2.85825204e-02,
+       -6.91014758e-03, -8.41033121e-02,  3.68331787e-02,  7.11007736e-02,
+       -2.00328214e-02,  3.82732440e-01, -2.22745778e-01,  1.78878301e-02,
+        1.72358280e-01,  2.35859658e-01, -1.16442912e-02,  8.41240807e-02,
+       -1.24425266e-01,  2.87859299e-01, -6.13136825e-02, -3.19807867e-02,
+        2.49839692e-02,  6.59704646e-02, -9.48979953e-02, -6.81675768e-04,
+        8.07728551e-03,  2.48061394e-01, -2.77197206e-02,  1.57257058e-01,
+        9.74561084e-02, -2.84110577e-01,  5.23987048e-01,  9.15429777e-02,
+       -6.53013713e-02,  1.58509566e-02,  9.05571037e-02, -1.87179358e-01,
+       -3.04147105e-02, -4.94626563e-01,  2.23429021e-01,  1.99739991e-02,
+        3.23527272e-01, -3.01492132e-02, -1.99536847e-01, -8.34862640e-02,
+       -1.84947719e-01, -2.73636545e-01, -3.11660857e-02, -4.44089501e-01,
+        1.08037145e-01, -3.59347022e-02, -3.91837932e-02,  1.71076556e-01,
+        5.74500884e-02,  1.97432675e-01,  2.55421054e-01, -1.89716223e-01,
+        1.82336782e-01, -1.43102687e-01,  2.75217562e-01,  3.31716433e-01,
+        4.64396850e-01, -1.43985463e-01,  1.02979941e-01,  2.69330185e-02,
+        1.28810809e-01,  2.09814599e-01,  1.67382045e-01,  4.70837395e-03,
+        1.03761797e-01,  1.17520335e-01, -7.91242585e-02, -2.24233361e-01,
+        5.14585557e-02,  1.64848302e-01, -6.24423670e-02, -7.28287778e-02,
+        1.47782314e-01,  2.22562069e-01, -7.51779412e-04, -1.78472498e-01,
+       -8.86608328e-02,  4.15714330e-02,  1.25082753e-01, -6.76857733e-02,
+       -7.98932508e-02, -3.56713068e-02, -1.45640283e-01,  2.29423144e-01,
+        1.39956904e-02, -2.68419102e-01,  2.91389451e-01,  4.91903341e-02,
+        2.20850374e-01, -5.54378071e-02,  4.06365152e-02,  5.52676877e-03,
+        8.26204181e-02, -1.88048013e-01, -1.41945976e-01, -3.36005487e-02,
+       -3.10395664e-01, -6.32064741e-02,  2.39263098e-01,  3.47577094e-02,
+        1.14906733e-01,  7.79065094e-02, -7.93103144e-03, -7.12515540e-02]), array([ 3.16024334e-01,  9.66194906e-02, -5.92958388e-02,  1.57567675e-01,
+       -8.73015861e-02,  8.66719134e-02,  1.84425351e-01, -2.19275040e-02,
+       -6.76626684e-02,  7.87660861e-02, -5.33201947e-02,  1.77668033e-01,
+       -1.15344178e-02,  1.68138894e-01, -3.39662127e-01,  8.58588661e-02,
+        1.23841238e-01, -3.28813812e-01, -2.13812928e-01, -9.89223006e-02,
+       -8.94126874e-03, -2.42013024e-01, -1.16366690e-01, -2.82107388e-01,
+       -2.54308644e-01, -2.67424649e-01,  2.82617969e-01,  6.24636427e-01,
+        1.16435753e-01,  3.85513765e-01, -2.33289809e-01,  3.34973460e-01,
+       -3.17956524e-01,  9.30617187e-02, -1.46067894e-01,  6.21475374e-02,
+        6.36842160e-02,  1.55548165e-01, -3.32035975e-02,  2.50324674e-01,
+        7.92322664e-02, -8.77625082e-02,  2.17824863e-01,  1.83331145e-01,
+        1.16176738e-01, -1.66581821e-01,  1.95443786e-02, -1.08213490e-01,
+       -6.75133101e-01,  2.24064297e-01,  3.63642324e-02,  5.36259777e-02,
+        2.14676389e-01, -1.34005272e-03,  2.82787385e-02, -1.32797602e-01,
+       -2.46665516e-01,  1.47995423e-03,  3.65444572e-02,  3.53299602e-01,
+        2.28127956e-01,  1.05487526e-01, -3.57862277e-02, -3.52666164e-02,
+        2.94671352e-02,  9.93072773e-02,  2.34401669e-01,  1.25354052e-02,
+        1.05566895e-01, -2.17255058e-01,  5.78058295e-02, -3.76153153e-01,
+       -7.33817676e-02,  4.00805182e-02,  2.18211099e-01, -3.47547625e-02,
+        3.60826291e-01, -1.07222811e-01,  3.48693846e-01,  3.39734958e-01,
+        3.25483468e-01,  1.28284265e-01, -2.28191164e-01,  3.94856450e-01,
+       -3.69313983e-01,  2.56162009e-01, -4.61081133e-02, -5.58050887e-02,
+       -1.57287755e-02,  9.42882289e-02, -8.97720144e-03, -3.48807060e-01,
+        3.05330802e-02,  1.07323349e-02,  5.67904233e-02,  5.50324536e-02,
+       -3.03254854e-01,  3.99045724e-01, -3.28643221e-01, -1.82675159e-01,
+       -1.30650380e-01, -1.72000095e-01, -1.25622164e-01, -3.53350277e-01,
+        1.18130836e-01, -2.45337015e-02, -2.45130892e-01, -6.37018387e-01,
+       -2.31548677e-02,  4.02399756e-01,  3.21183144e-02, -2.04753921e-01,
+        3.09292725e-01, -5.94141782e-02, -1.75956606e-01, -1.76654806e-01,
+       -7.05562359e-02,  3.08802033e-01, -3.43855714e-02,  1.30716471e-01,
+        1.47453608e-01,  2.03509707e-01,  8.80089487e-02, -8.52863452e-02,
+        1.87803989e-01, -1.79267106e-02, -2.38110017e-01, -1.90208357e-01,
+        1.18199588e-01,  2.48383415e-03, -1.43678314e-01,  2.78907908e-01,
+        1.80801927e-01,  5.90515589e-02,  1.68519140e-01,  1.99905897e-01,
+       -6.12419842e-01,  9.85589553e-02, -1.09845799e+00, -3.56243496e-01,
+       -3.07664719e-01,  7.41077662e-02,  7.41743204e-03, -1.66139747e-01,
+        7.71375416e-02, -4.74050791e-02, -4.93772043e-01, -2.35314205e-01,
+        1.91228297e-01, -1.36122282e-01, -2.29590651e-01, -2.23409266e-01,
+       -5.30751382e-02,  2.89125495e-02,  1.22521465e-01, -4.24270143e-02,
+        1.81363291e-01, -4.82640097e-03,  1.08659021e-01,  1.42414025e-01,
+        2.67754296e-01, -9.67823587e-02, -4.77125827e-02, -7.27961995e-02,
+        2.17712852e-01, -2.81651904e-02,  1.61616908e-01,  3.74420129e-03,
+        5.65768065e-02,  1.98183133e-01,  3.72694439e-02,  2.62705864e-01,
+       -6.78341717e-02,  4.83779753e-01, -1.22733526e-02, -2.59911141e-02,
+        2.27676439e-01, -9.69633866e-02,  1.36285620e-01,  2.79024422e-01,
+        2.05171814e-02, -1.69505909e-01, -3.51773451e-01, -8.20099612e-02,
+       -1.09009881e-01, -1.91944439e-01,  5.14028874e-02, -1.28513965e-01,
+        2.09994916e-01,  1.50686344e-01,  6.19859390e-03, -2.18793608e-01,
+       -3.53030771e-01, -1.48455506e-01, -2.01780349e-01, -1.95675023e-02,
+       -9.17525264e-02, -2.74897692e-02, -9.99824190e-02, -4.45653262e-02,
+       -5.14892538e-02,  1.41747892e-01, -2.31221873e-01,  1.80095181e-01,
+        3.10123128e-01, -8.00920269e-02, -1.06034055e-01,  9.76749526e-02,
+       -1.08000209e-01, -1.88896169e-01, -2.58895517e-01, -1.16382764e-01,
+        3.66676331e-01, -2.31921954e-01,  1.11228426e-02, -2.36839768e-01,
+       -4.72736001e-02, -2.47149660e-01,  9.67884115e-02,  2.69268993e-01,
+       -1.15896687e-01, -3.50753100e-01, -1.71527529e-01, -7.56719402e-02,
+       -3.87450980e-01,  1.17236180e-01,  1.94023642e-01, -1.07839543e-01,
+       -4.68038275e-02, -3.02945936e-01,  2.23872414e-01,  2.50587953e-01,
+        1.80230725e-01, -1.49154944e-01, -1.85408464e-02,  1.54060137e-01,
+       -2.08056586e-01,  3.29252744e-02, -7.50458095e-01,  8.09745905e-02,
+       -1.82988949e-01,  1.35382385e-01,  1.89293485e-01,  2.50081532e-01,
+       -8.72697472e-02,  3.73828813e-01, -2.21620497e-01,  2.74538013e-01,
+       -1.85785515e-01,  2.26746302e-01,  1.89567068e-01, -1.37151429e-01,
+       -1.19475132e-01,  1.49428420e-01,  1.11869404e-01, -2.59924437e-01,
+       -7.23537659e-02,  4.81219244e-01, -2.34953006e-02, -2.10057474e-01,
+        2.07281768e-01, -2.88342868e-01,  9.36554491e-02, -3.60795624e-01,
+        8.23801468e-02, -1.12658322e-01, -3.17010151e-01,  2.18634597e-01,
+       -1.43871641e-01,  8.21636911e-02,  1.14034920e-01, -2.39336199e-01,
+        6.66753807e-02,  3.27034377e-01,  1.88372674e-01,  1.62445003e-01,
+        7.82796730e-02,  1.38548472e-01,  2.56731969e-01, -2.18891251e-01,
+        3.38328928e-01, -1.76286367e-01, -2.84596553e-01, -7.47948423e-02,
+       -1.25219438e-01,  1.14895573e-01,  2.44258581e-01,  9.67811592e-02,
+       -1.61207795e-01, -1.56527167e-01,  3.53150585e-02,  1.53602025e-01,
+       -4.29788778e-01, -6.90144672e-02, -2.67927527e-01,  1.97429507e-01,
+       -5.37827466e-01,  2.78145835e-01, -2.23367467e-01,  2.03502464e-01,
+        2.54629603e-01,  1.32190026e-01,  2.30882696e-01,  1.30847872e-01,
+       -3.28417090e-01,  2.61675885e-01,  3.54478300e-01,  1.11071121e-01,
+        3.06454886e-01,  2.34421798e-01,  4.26543625e-01,  1.68388634e-01,
+       -1.71409502e-01, -2.32952559e-01, -1.90026706e-01, -1.11967304e-01,
+        5.21654186e-04, -1.37881390e-02, -1.85444498e-01,  8.43868844e-02,
+        2.02172679e-01, -1.77447550e-01, -3.38118358e-01,  6.69911908e-02,
+       -8.13813699e-02,  6.58348637e-02,  2.87267794e-02, -1.84647708e-01,
+        6.09556198e-02,  7.03490842e-02,  2.49829262e-01, -1.16645212e-01,
+       -1.37908558e-02, -2.98738027e-01, -1.60936933e-02, -1.11930981e-01,
+       -1.21247983e-01,  6.08714342e-01, -3.55892034e-01,  1.96779441e-01,
+       -1.60480102e-02, -4.31068081e-02,  1.41379815e-01, -1.32988542e-01,
+        2.43927311e-01,  9.34199698e-02,  2.28963780e-01, -2.66983407e-01,
+        1.68172510e-01, -2.16461054e-02, -7.72595385e-02,  1.98588799e-02,
+       -8.19501565e-02, -1.02534719e-01,  3.66382280e-01,  1.09352526e-01,
+        9.93819212e-04, -1.08731283e-01,  9.54577913e-02, -1.86783365e-01,
+       -5.33565382e-02,  7.04833267e-02,  4.01030467e-02,  7.00073259e-02,
+        7.30868679e-02, -6.21640001e-02,  1.47686010e-01, -2.80369627e-01,
+       -9.12075943e-02,  1.81796512e-01,  4.17820814e-01, -6.53576349e-02,
+        1.44691128e-01,  3.02593922e-02,  1.09345564e-01,  1.75671381e-01,
+       -6.23992926e-02, -2.61007497e-01, -5.06192983e-02, -3.68411359e-01,
+       -3.62682563e-01,  2.03335252e-01,  2.32174925e-01,  8.35004469e-02,
+        5.95273818e-02,  1.36534134e-01,  4.72340713e-02, -7.38500534e-03,
+        1.13011056e-02, -2.63706747e-02,  6.96016084e-02,  2.07733181e-01,
+        7.23256206e-02, -1.69193450e-01,  3.94555936e-02,  2.73077278e-01,
+       -1.06044966e-01, -1.26390677e-01,  2.19815983e-02, -2.68763468e-01,
+       -2.41424208e-01,  2.49899178e-02, -3.53329838e-01,  1.05843099e-01,
+       -2.14974630e-01, -1.55392782e-01, -3.89266668e-01, -1.71935271e-02,
+       -1.81580018e-01,  1.02540294e-01, -2.70872126e-01, -3.39960045e-01,
+        8.96703327e-02,  5.44271470e-02,  1.13156289e-01, -3.83999223e-01,
+       -2.47182276e-01,  1.90451516e-01,  1.30443331e-01,  1.91851240e-01,
+       -8.48026255e-02,  9.22013478e-02,  1.73782113e-01,  3.47939237e-02,
+        8.02368066e-02, -1.49125197e-01, -6.18032599e-02, -2.05173505e-01,
+       -3.74445680e-01,  4.80817084e-01, -3.84235031e-02, -3.14638199e-02,
+        1.38808855e-01, -1.83019259e-01, -1.53742882e-01, -1.78904544e-01,
+        1.91322622e-02, -7.66950837e-02,  2.21117061e-01, -4.27032336e-01,
+        5.02894477e-02, -1.14791622e-01, -9.97491132e-02, -4.28392892e-01,
+        1.61820502e-01, -1.11272813e-01,  1.30155126e-01,  1.01330945e-01,
+       -4.14758425e-02,  5.24624648e-02,  2.31307996e-01, -2.79186831e-01,
+        1.25886994e-01,  9.63721418e-02, -1.08457324e-01, -3.07676570e-01,
+        5.54293090e-02, -1.54097566e-01, -3.32445688e-01,  1.63521447e-01,
+       -1.11152001e-01,  7.59144850e-02, -1.35248222e-01,  1.41091238e-01,
+        3.12672973e-01, -1.71093836e-01,  2.91136830e-01,  2.02197971e-01,
+       -7.81466797e-02,  3.24260200e-01,  2.58567758e-01, -1.43114506e-02,
+        4.50597115e-01,  2.12028805e-01, -4.45616298e-02, -6.30919922e-01,
+       -1.65510683e-01,  1.70010041e-01,  2.84769390e-01,  5.71942884e-02,
+       -1.02162256e-01,  4.61744388e-02, -6.20599605e-02,  1.27827073e-01,
+        5.86622517e-02,  1.78863700e-01,  5.15285554e-01, -3.95581884e-01,
+        2.99013766e-01,  2.30416502e-01, -9.47668558e-02,  1.33164220e-01,
+       -1.18909683e-01,  1.64863604e-01,  6.26412939e-02,  9.98304531e-02,
+        8.87689579e-02, -1.57044832e-01, -1.95606409e-01, -5.36033122e-01,
+        1.32138853e-01, -3.28533249e-01, -4.48229733e-02,  1.67344842e-01,
+       -4.40537293e-01,  1.40617150e-01,  7.82989815e-02, -4.14195316e-02,
+        3.59680511e-01, -1.22150776e-01,  5.95914144e-02, -5.21966160e-01,
+        1.32968766e-01,  3.58575742e-01, -3.58339901e-02,  1.49237500e-03,
+       -4.53915653e-02,  2.59876038e-01,  1.67149665e-01, -9.70464630e-02,
+        2.79158719e-01, -3.07734192e-01, -2.04528356e-01,  2.37110996e-01,
+        4.20452894e-02,  3.59430646e-03,  2.60892209e-01,  2.69366809e-01,
+       -2.29816994e-01, -2.04197474e-01,  2.74971153e-01, -4.47970025e-02,
+        2.47879139e-02, -2.29342672e-01,  2.57581192e-01, -2.39506074e-01,
+        3.61489492e-01,  4.91573957e-02, -3.31394938e-02,  9.54727370e-02,
+        5.75374749e-02, -1.98634090e-02,  1.07913755e-01, -2.32259613e-01,
+       -2.14748063e-01,  3.10682118e-01, -1.57871613e-01,  3.32034770e-01,
+       -3.12172064e-02,  4.54688889e-02,  4.67237497e-02,  2.21985194e-01,
+       -4.96244740e-01,  2.48043759e-01,  1.39120991e-02,  1.12965816e-01,
+       -2.65155564e-01, -9.61279203e+00,  9.80651944e-02,  4.11363801e-02,
+        2.54877474e-01, -1.67109645e-01, -4.02060165e-02,  3.21810373e-01,
+       -2.32715567e-02, -1.81283241e-01,  3.04175457e-02, -1.75953883e-01,
+       -1.85418167e-01,  2.13005913e-01,  1.47360301e-01, -1.64901132e-03,
+       -1.09260761e-01, -8.18936916e-02,  1.07214688e-01,  2.96099115e-01,
+        1.54398489e-01, -2.03867664e-01,  3.81231223e-01,  1.75769476e-01,
+        3.30115836e-02, -1.01443454e-01,  1.74930814e-01, -3.43849580e-02,
+        7.01972739e-02,  1.73139114e-02, -6.98117752e-02, -2.72171792e-01,
+        1.41403833e-01,  4.15518753e-02, -3.93848756e-01,  2.28772593e-01,
+       -2.40952296e-01, -6.66433193e-02, -1.58790258e-01, -1.15234881e-01,
+       -1.59343027e-01, -1.30382339e-01, -5.69902743e-02, -1.44610557e-01,
+        4.24425839e-02,  2.22408750e-01, -2.15413185e-01,  4.42272692e-02,
+        1.13043182e-01, -3.31387727e-01,  1.43311648e-01,  3.87055345e-01,
+        3.39655189e-01,  9.88754355e-02, -1.70440363e-01, -6.55480518e-01,
+        2.56622104e-01,  1.54777960e-01,  7.70858315e-01, -4.92318503e-02,
+       -2.26427637e-01, -5.14144441e-02, -1.70655910e-01,  4.40069904e-01,
+       -3.48628405e-02,  6.84489575e-02,  2.22578361e-01, -1.84269948e-01,
+        2.40966376e-02,  1.03982628e-01, -1.19785772e-01, -9.98209577e-02,
+       -7.68799091e-02, -5.42579199e-02, -7.67226377e-02,  1.73799838e-01,
+       -2.03142445e-01,  2.58067129e-01,  2.04686164e-01,  3.09900152e-01,
+       -2.21930896e-02, -2.07149913e-01,  1.80326482e-01,  2.94211696e-01,
+       -1.77355114e-01,  3.25942204e-02, -2.97852021e-01, -2.71698768e-01,
+        9.52624319e-02,  5.37835859e-01, -5.08725962e-02,  1.33842232e-01,
+        2.40032418e-01,  8.08461314e-02, -9.40021896e-02, -1.71000298e-01,
+        5.39240287e-02,  9.05653890e-02, -1.63791528e-01,  6.26161860e-02,
+        1.53066194e-01, -4.33748209e-02,  4.92173923e-02,  3.12853026e-01,
+        8.66421573e-02, -2.76820466e-01,  3.82845414e-01, -1.46167287e-01,
+       -6.43346774e-03,  9.65219209e-03, -4.89286867e-02,  1.69584843e-02,
+        1.68383238e-01,  4.47607185e-01, -3.55163512e-01, -3.13500608e-02,
+        1.73017508e-01,  2.38548440e-01,  3.31244977e-02,  1.84303320e-01,
+       -4.65391011e-02,  9.63341905e-02,  8.56185904e-02, -3.96932728e-02,
+        1.31488456e-02,  7.44466423e-03, -1.04619181e-01,  1.60832959e-01,
+       -4.94807611e-02,  3.82364292e-01,  1.69547713e-02,  2.56245411e-01,
+        1.77659973e-01, -2.18539909e-01,  3.73356566e-01,  9.41280470e-02,
+        8.43922896e-03, -5.20328121e-02,  1.73294697e-01, -2.14294867e-01,
+        3.07566590e-02, -3.33490821e-01,  1.65260551e-01,  1.14381352e-01,
+        2.57295928e-01, -1.75584862e-01, -2.45357991e-01,  3.25998582e-02,
+       -3.51999324e-01, -3.35055214e-01,  2.05959332e-02, -5.11377976e-01,
+       -5.19918800e-02,  7.82675737e-02, -1.28100441e-02,  8.70824138e-02,
+       -9.25595725e-02,  1.68611461e-01,  2.15331705e-01, -2.06913011e-01,
+        2.04885238e-01, -1.41578157e-01,  7.36726306e-02,  2.92558490e-01,
+        5.67290526e-01, -1.90951545e-01,  1.23230971e-01,  1.36132179e-01,
+        1.31835461e-01,  2.48156914e-01,  1.28498165e-01, -2.19579618e-02,
+        1.32817306e-01,  2.42546808e-02, -2.75224895e-02, -1.97292584e-01,
+        1.05097330e-01,  1.28033397e-01, -2.01404895e-01, -7.16315062e-02,
+        2.24245784e-01,  1.89667139e-01, -1.58898878e-01, -3.33979815e-01,
+       -2.76896106e-01,  8.49790243e-02,  2.31455222e-01, -8.13736180e-02,
+       -1.10448334e-02,  2.68309592e-02, -9.05597171e-02,  4.39267871e-01,
+        2.26399750e-01, -2.72942960e-01,  2.81329750e-01,  1.11231385e-01,
+        2.60115050e-01, -6.64185898e-02, -3.79202409e-02, -1.00718376e-02,
+        1.54841878e-01, -2.16666057e-01, -1.85505498e-01, -4.74876836e-02,
+       -2.90914408e-01, -1.64035537e-01,  2.27802027e-01,  7.64938288e-02,
+        1.27535176e-01, -1.31389823e-01,  5.60744335e-03,  1.13582291e-02]), array([ 3.73069544e-01,  1.84695629e-01, -2.24558589e-01,  1.00177857e-01,
+        4.86014885e-02,  7.15850841e-02,  4.56722620e-01,  7.44147799e-04,
+       -8.87544739e-02, -1.27645202e-02,  1.27800990e-02,  2.09037966e-01,
+        1.74063501e-02,  4.21000302e-02, -3.48029133e-01,  7.39276722e-02,
+        1.67769555e-01, -2.25445051e-01, -1.24133911e-01, -1.24779180e-01,
+       -5.84150847e-03, -1.86475725e-01, -1.57674451e-01, -2.20550000e-01,
+       -1.57553607e-01, -3.21465341e-01,  3.26222606e-01,  5.62602462e-01,
+        1.38286972e-01,  5.04759275e-01, -2.56409083e-01,  4.24678601e-01,
+       -3.15062891e-01,  6.89559040e-02, -3.23270231e-01,  2.07056486e-01,
+        1.51733134e-02,  1.32901769e-01, -4.99509240e-02,  1.02857369e-01,
+       -1.77102427e-02,  3.61225017e-02,  4.31487727e-01,  2.62175351e-01,
+        7.87006557e-02,  1.99436534e-02, -1.66256145e-01, -2.70958266e-01,
+       -4.96130690e-01,  2.40914482e-01, -8.72684284e-02, -5.28809530e-02,
+        2.03002114e-01, -3.93550665e-02,  1.16013970e-01, -5.86966722e-02,
+       -4.42349208e-01,  2.33082921e-02, -2.37459622e-02,  2.77798758e-01,
+        1.30236224e-01,  3.35965192e-01,  2.01475684e-02, -1.75216863e-01,
+        9.02236858e-02, -3.40830351e-02,  1.73246963e-01, -9.73829054e-02,
+        1.75507299e-01, -3.18602061e-01, -1.50662768e-01, -5.29442815e-01,
+       -1.91372708e-02,  5.34821246e-02,  3.67089356e-01, -7.44781342e-02,
+        3.39573645e-01, -5.22190944e-02,  3.18970105e-01,  5.15284641e-01,
+        4.82469075e-01,  1.52221733e-01, -1.57046151e-01,  2.99428881e-01,
+       -4.22209377e-01,  2.37904751e-01, -7.73916310e-02, -1.40802926e-01,
+       -3.12107722e-02,  9.80443515e-02, -1.21499507e-02, -4.06859361e-01,
+        4.47523135e-03, -9.08027340e-02, -1.54981297e-02,  2.14997429e-01,
+       -5.31343789e-01,  3.78941789e-01, -4.43189981e-01, -6.79837321e-03,
+       -2.54804529e-02, -1.91275337e-01, -7.67342163e-02, -3.40311533e-01,
+        2.11846003e-01, -1.27207098e-01, -2.00263789e-01, -8.17972045e-01,
+        1.28757182e-02,  5.66628205e-01,  3.27666890e-02, -2.67318943e-01,
+        3.13744921e-01, -1.28578807e-01, -1.91204312e-01, -2.43931174e-01,
+        3.73202297e-02,  2.49456640e-01, -8.97000425e-02, -1.01594385e-01,
+        2.22132841e-01,  2.74378247e-01,  1.96286382e-01, -6.76858244e-02,
+       -2.70396973e-02,  1.87635493e-02, -2.91455810e-01, -6.14781707e-02,
+        3.32356302e-02,  9.20753822e-02, -5.16768352e-01, -9.42983137e-02,
+        2.17061454e-01, -2.14613667e-02,  1.26059775e-01,  2.45232143e-01,
+       -6.37739107e-01, -5.91753568e-03, -1.26634750e+00, -2.18941949e-01,
+       -3.84668739e-01,  6.28012328e-02, -2.51556897e-02, -1.50901394e-01,
+        5.30141728e-02,  1.36129907e-02, -4.36974256e-01, -2.34335062e-01,
+        7.64385013e-02, -2.36246793e-01, -8.09114869e-02, -3.19183553e-01,
+        2.80467995e-02,  2.25346334e-02,  2.11877787e-02, -5.71809205e-02,
+        8.90151636e-03,  1.03694325e-01,  9.22337899e-02,  1.40386455e-01,
+        2.73263434e-01, -1.08793482e-01, -7.32284359e-02,  9.90432927e-02,
+        1.75852194e-01,  2.28397653e-02,  7.46970420e-02, -1.49943954e-02,
+       -3.81403396e-02,  2.77996162e-01, -8.18518438e-02,  4.23178364e-01,
+       -1.44193389e-01,  4.87922243e-01,  4.35950714e-02, -1.26137470e-02,
+        1.91429918e-01,  1.18912686e-01,  9.49196366e-02,  2.46363521e-01,
+        1.04628407e-01, -3.01655998e-01, -1.36031478e-01, -3.49629041e-02,
+       -2.52698367e-01, -2.94083930e-01,  1.70572010e-01, -3.02493334e-01,
+        9.40348784e-02,  1.17066613e-01, -2.01216136e-03, -3.81589465e-01,
+       -4.30978189e-01, -1.72505572e-01, -2.16904644e-01, -1.58574711e-01,
+       -1.98365779e-01, -2.24378845e-01, -4.90508855e-02,  5.04036088e-02,
+       -1.27550051e-01,  6.10429841e-02, -2.78294176e-01,  1.34653639e-01,
+        2.33100366e-01, -3.06071288e-01,  5.25261677e-02,  4.88018301e-02,
+       -2.45768339e-01, -1.69313429e-01, -3.39606691e-01, -9.00855159e-02,
+        4.88599141e-01, -4.34120920e-02,  1.75350864e-02, -6.72217782e-02,
+        3.67090023e-02, -2.31888729e-01,  1.95478480e-02,  2.32506123e-01,
+       -1.55095021e-01, -2.00914810e-01, -1.20709816e-01, -6.02100185e-02,
+       -1.39351492e-01,  7.75789769e-02,  2.50868437e-01, -3.24510993e-02,
+       -8.23221300e-02, -3.50193007e-01,  2.19993608e-01,  1.75140643e-01,
+        8.35864874e-02, -1.25940622e-01, -1.01796787e-01,  9.36486255e-03,
+       -2.75170877e-01, -2.25120501e-01, -8.23039322e-01,  1.40310889e-01,
+       -1.91220733e-01,  1.21999456e-01,  4.16005959e-01,  1.67341436e-01,
+       -8.98360298e-02,  4.17305648e-01, -3.39353487e-01,  3.27848216e-01,
+       -1.90597352e-01,  3.85961973e-01,  1.07279062e-01, -2.71349163e-01,
+       -3.81803616e-01,  1.26084476e-01,  7.16866855e-02, -2.43013912e-01,
+        7.14393629e-03,  4.50368020e-01, -1.14722400e-01, -2.55640407e-01,
+        2.12974718e-01, -2.10657961e-01, -5.68794336e-02, -4.38350926e-01,
+        1.61617464e-01,  4.90361001e-02, -4.31372733e-01,  2.96624494e-01,
+       -2.60164702e-01, -3.36087054e-02, -1.75822289e-01, -2.98845351e-01,
+       -2.68335207e-02,  2.37811483e-01,  1.72923493e-01,  1.10074273e-01,
+       -1.57634173e-01,  1.10310093e-01,  1.39983961e-01, -3.20732228e-01,
+        2.74179957e-01, -6.09002607e-03, -2.71937352e-01,  1.12790862e-01,
+       -2.77982411e-01,  1.85797990e-01,  2.61485999e-01,  2.40190250e-01,
+       -1.61296463e-01,  3.26130142e-02, -4.41822922e-02, -4.20712514e-02,
+       -3.50426535e-01,  4.02698998e-02, -2.06917279e-01,  5.84519288e-02,
+       -4.89386042e-01,  2.16656840e-01, -6.33864700e-02,  3.23030333e-01,
+        1.63815789e-01,  1.99722005e-01,  2.36736700e-01,  1.44035785e-01,
+       -4.42339814e-01,  2.61807561e-01,  2.27219590e-01,  8.73549349e-03,
+        2.52165785e-01,  3.82347120e-01,  5.03826053e-01,  2.28052144e-01,
+       -1.33495471e-01, -2.53332292e-01, -2.04909318e-01, -1.74044072e-01,
+       -1.11132394e-01,  1.09340578e-01, -2.09034113e-01, -6.34726652e-02,
+        1.49750849e-01, -3.14082020e-02, -2.29123837e-01,  1.34785731e-01,
+       -1.38944894e-01,  1.19983330e-01, -2.10889960e-02, -2.20177976e-01,
+       -1.98648621e-01, -4.65256250e-03,  1.73850440e-01, -4.08898368e-02,
+        3.12770791e-02, -1.44179090e-01, -2.85394882e-01, -7.51805182e-02,
+       -5.96758355e-02,  4.72013599e-01, -3.76850529e-01,  1.11921779e-01,
+        9.18393887e-02, -8.34145025e-03,  1.67983314e-01, -1.08699506e-01,
+        2.44953997e-01, -2.93530260e-03,  2.67317075e-01, -3.34994874e-01,
+        1.63488962e-01,  4.77970463e-02, -7.94880854e-02,  9.62226277e-02,
+       -1.70468394e-01,  6.81322782e-03,  1.37398026e-01, -5.60647387e-02,
+        1.56024390e-01, -1.09475706e-01,  4.48552987e-02, -2.37396378e-01,
+       -8.14691367e-02, -3.16645251e-02,  4.54433629e-02,  9.74559509e-02,
+        1.83193217e-01, -4.20151259e-02,  1.19497143e-01, -1.27405175e-01,
+        7.99773942e-04,  1.40882850e-01,  2.78385339e-01,  8.19341953e-02,
+        2.00221406e-01, -1.17732075e-01, -1.25853983e-01,  2.50857950e-01,
+        6.00424257e-02, -1.73481099e-01, -4.14463062e-02, -4.10432630e-01,
+       -4.48885442e-01,  1.53084473e-01,  2.23805489e-01,  1.25609766e-01,
+        6.54090332e-02,  7.37977917e-02,  1.51951042e-02,  4.76684674e-02,
+        2.18723207e-01,  2.85770266e-02, -1.12489058e-01,  5.47751803e-02,
+        5.92186767e-02, -3.56989249e-01,  5.93767617e-02,  3.20027227e-01,
+       -2.49704073e-01, -6.74342482e-02, -1.54540389e-01, -2.87106135e-01,
+       -2.53851904e-01, -3.30608908e-02, -5.58516055e-01,  2.00167364e-01,
+       -9.89653675e-03, -1.70910388e-01, -2.78685980e-01, -7.45385908e-03,
+       -5.40566480e-02,  1.14448218e-01, -1.69991357e-01, -5.44105091e-01,
+        1.78447311e-01,  1.92773899e-01,  1.87688078e-01, -3.18407978e-01,
+       -1.91903071e-01,  1.85945402e-01,  2.33398450e-01,  2.05101668e-01,
+        1.95193801e-02,  4.24840527e-02,  1.48402023e-01, -8.71864666e-02,
+        1.44664801e-01, -3.03115059e-01, -6.54672513e-02, -1.46490908e-01,
+       -4.76072695e-01,  4.04837777e-01,  5.27910407e-02, -1.27049813e-01,
+        2.28937619e-01, -2.35068944e-01, -7.69028170e-02, -1.95317345e-01,
+        7.10682957e-02,  7.70151489e-03,  2.73272010e-02, -1.73190446e-01,
+        4.40610908e-02, -1.28271851e-01, -1.01565706e-01, -4.93150290e-01,
+        9.39544077e-02,  3.86053214e-02, -3.75001268e-02, -3.66886195e-02,
+        6.35147328e-02,  1.57578407e-01,  1.96673772e-01, -1.54144921e-01,
+        1.70720383e-01,  2.50084097e-01, -5.79134962e-02, -5.68429198e-01,
+       -5.62242590e-02, -9.19317886e-02, -1.25188930e-01,  2.24426896e-01,
+       -1.38541065e-01,  9.91029016e-02, -2.31275102e-01,  2.69486593e-01,
+        3.71632915e-01, -2.04951874e-01,  4.02164727e-01,  1.40518287e-01,
+       -1.95424428e-01,  1.46020023e-01,  2.68795906e-01, -1.48825273e-01,
+        6.36237437e-01,  3.70856917e-01, -2.22268091e-01, -4.94905734e-01,
+       -1.13434010e-01,  1.38075741e-01,  2.48789270e-01,  3.14591441e-01,
+        1.92853368e-01,  1.44252259e-01, -5.84200577e-02,  2.66005216e-01,
+        1.65385455e-02,  2.16303692e-01,  5.90768413e-01, -5.26918024e-01,
+        3.32806731e-01,  1.91988987e-01, -2.53194626e-01,  2.05527861e-01,
+       -2.32546336e-01,  2.17793334e-01,  2.06381933e-03,  1.87919945e-01,
+        1.09987126e-01, -1.49757574e-01, -1.10738635e-01, -3.71124453e-01,
+        1.12334702e-01, -3.39472415e-01, -4.97356891e-02,  9.76999875e-02,
+       -3.93309612e-01,  1.44897933e-01,  4.11512780e-02, -8.19256612e-02,
+        3.71490262e-01, -9.86605116e-02,  1.51958786e-01, -4.95380142e-01,
+        1.73408939e-01,  2.96562194e-01,  1.21230280e-02,  8.48177100e-02,
+       -1.63692569e-01,  2.90190295e-01,  1.28433227e-01, -1.16416299e-01,
+        2.47607805e-01, -2.76562620e-01, -1.38713003e-01,  2.34007027e-01,
+       -6.75645422e-02,  2.24325271e-02,  2.25016586e-01,  2.76293729e-01,
+       -5.29918537e-02, -1.72070496e-01,  1.75219448e-02, -4.58970173e-02,
+        2.46962117e-01, -1.90115656e-01,  2.60142941e-01, -2.58486196e-01,
+        3.51397322e-01,  7.37212895e-02,  5.61765262e-02,  4.03523856e-02,
+       -4.60634295e-03,  4.35677473e-02,  2.95105252e-01, -3.14272678e-01,
+       -3.11070500e-01,  1.77711235e-01, -1.64116142e-01,  3.21819448e-01,
+       -9.55711708e-02,  9.66316101e-02,  2.00336179e-01,  2.02256297e-01,
+       -4.43582905e-01,  3.61060602e-01,  1.12199072e-01,  3.19359622e-02,
+       -3.39653883e-01, -9.32389085e+00,  1.50147251e-01,  9.88092781e-02,
+        2.62298897e-01, -1.74143413e-01, -7.59588948e-02,  3.60287162e-01,
+        1.18689355e-01, -1.34397847e-01,  2.24835677e-02, -1.64339519e-01,
+       -2.77561649e-01,  4.79559893e-01,  2.29433176e-01, -5.38344132e-02,
+        5.49644572e-02, -1.42249236e-01,  1.75507670e-01,  4.60767362e-01,
+        2.85785263e-01, -8.31876186e-02,  4.32461559e-01,  1.03712758e-01,
+       -1.57571909e-01, -3.00452456e-01,  3.15924381e-01, -5.74199592e-03,
+        1.92243097e-01,  1.18112975e-02, -1.93467677e-01, -2.44863802e-01,
+        1.52883473e-01,  1.37764102e-01, -2.03883107e-01,  1.91988672e-01,
+       -3.37343600e-01, -1.67267210e-01,  3.48162350e-02, -1.91359894e-01,
+       -3.87271858e-01, -1.89024513e-03,  3.33861796e-02, -2.11607123e-01,
+       -1.13981119e-02,  1.29895306e-01, -2.08941980e-01,  1.50912428e-01,
+        1.18002567e-01, -2.69209054e-01,  8.58214333e-02,  4.79923994e-01,
+        4.21801538e-01,  3.23583310e-01, -2.29221487e-01, -4.82800674e-01,
+        1.41017238e-01,  5.20705476e-02,  7.30525689e-01, -8.30706355e-02,
+       -1.78561731e-01, -8.09158763e-04, -4.80986049e-02,  5.37506291e-01,
+       -2.06004877e-01, -2.21061210e-02,  1.66449058e-01, -1.98595557e-01,
+       -4.29295308e-04,  3.27746442e-01, -2.42260656e-03, -2.26863058e-01,
+       -8.35817812e-02,  4.98284521e-02,  4.44095496e-02,  1.75057414e-01,
+       -1.36651356e-01, -3.77738077e-02,  4.30667567e-01,  3.96767068e-01,
+        1.15224057e-01, -3.14422226e-01,  1.07550865e-01,  3.85901880e-01,
+       -2.83638579e-01,  3.79626181e-02, -3.99450850e-01, -2.82525888e-01,
+        2.52443466e-01,  3.89715433e-01, -2.28811680e-02,  1.64391273e-01,
+        1.70961619e-01, -4.85348374e-02, -1.65960392e-01, -1.82906757e-01,
+        2.10456826e-01,  1.60152351e-01, -9.63836683e-02,  3.97624952e-02,
+       -1.00666993e-02, -3.60076729e-02, -2.32014816e-01,  2.99542883e-01,
+       -6.54884172e-03, -3.09877396e-01,  4.05601809e-01,  2.52636691e-02,
+        3.66230486e-02, -6.08608507e-02, -7.86490076e-02,  5.26820580e-02,
+        6.47920715e-02,  4.28324018e-01, -1.66165660e-01, -2.50200224e-02,
+        1.17804283e-01,  2.32091039e-01, -9.38688483e-02,  3.14509036e-01,
+       -2.78183650e-02,  8.88418212e-02,  2.13177755e-01, -1.82250985e-02,
+        2.36925744e-02,  1.36326150e-01, -1.13656130e-01,  2.21911584e-01,
+       -2.43514308e-01,  3.29376585e-01, -1.30031298e-02,  8.42747288e-02,
+        2.51234935e-01, -1.12572342e-01,  2.66402440e-01,  1.94309180e-01,
+       -1.06446534e-01,  7.83419278e-02,  2.61960118e-01, -3.81169623e-01,
+       -4.99565158e-02, -2.66088604e-01,  2.56696723e-01,  7.10746866e-02,
+        2.82798268e-01, -5.57644683e-02, -2.63192509e-01, -6.92222657e-02,
+       -4.60623131e-01, -4.20195489e-01, -4.15110200e-02, -4.81558947e-01,
+        1.28777947e-01, -4.93692548e-02, -3.13112677e-02,  1.80649722e-01,
+       -1.04503676e-01,  1.61067948e-01,  3.13975232e-01, -2.48988731e-01,
+        1.55059429e-01, -4.46839718e-01,  3.32549115e-01,  3.29376561e-01,
+        6.64339760e-01, -2.76842085e-01,  2.61267731e-01,  1.00528275e-01,
+        2.99835241e-01,  1.59589881e-01,  2.53035058e-01, -1.36138843e-01,
+        7.60558619e-02,  2.24339967e-01,  6.43480170e-02, -2.28705172e-01,
+        2.16255022e-01,  1.58082454e-01, -1.58087129e-01, -1.36957002e-01,
+        1.94402979e-01,  3.44177774e-01, -1.43528020e-01, -2.92440364e-01,
+       -2.45884624e-01,  3.09418694e-01,  2.23006784e-01, -1.53586835e-01,
+        5.73787895e-02,  2.27536107e-02, -7.71668577e-02,  2.91737639e-01,
+        1.39515665e-02, -1.77318985e-01,  4.08207302e-01,  7.91543076e-02,
+        2.78105238e-01, -1.24810248e-01, -3.95659375e-02,  6.23174215e-02,
+        5.84005687e-02, -1.05614195e-01, -7.74943101e-03, -3.76407486e-02,
+       -1.64422282e-01, -7.61597574e-02,  2.11357042e-01,  2.35348870e-01,
+        1.29569472e-01, -1.79247694e-01,  7.16229066e-02, -6.83728450e-02]), array([ 4.51238315e-01,  2.64927722e-01, -3.91338989e-02,  2.95782686e-01,
+       -1.21016721e-01,  8.74201167e-02,  5.47930678e-01, -4.00388867e-02,
+       -2.63643228e-02, -8.60428154e-02,  1.37632354e-02,  1.09157431e-01,
+       -1.87158302e-01,  2.22287345e-01, -4.94415399e-01,  1.99105742e-01,
+        2.80930863e-01, -2.57502058e-01, -1.09156824e-01, -5.04289791e-02,
+        2.20831098e-02, -1.03802509e-01, -3.51509323e-02, -2.80731112e-01,
+       -1.27430234e-01, -3.21108416e-01,  3.65396487e-01,  4.51262266e-01,
+        6.08198228e-02,  5.35872108e-01, -1.54605626e-01,  4.85686173e-01,
+       -4.43047743e-01,  2.29591264e-01, -4.50367700e-01,  2.53565587e-01,
+        1.66319375e-02, -7.14075842e-02, -7.34987717e-02,  7.64223108e-02,
+       -1.22883100e-01,  1.16974867e-01,  4.71460954e-01,  1.20120152e-01,
+        1.39422771e-01, -9.06808254e-02, -5.68767544e-02, -1.87656567e-01,
+       -4.37060180e-01,  3.76523564e-01,  1.70918427e-01, -7.21401376e-02,
+        2.11975542e-01,  1.87985209e-01,  9.37416986e-02,  5.30422358e-02,
+       -5.04816325e-01,  2.20941108e-01,  1.07964395e-01,  3.21945877e-01,
+        6.06944553e-02,  2.43637636e-01,  3.38731114e-02, -1.65345045e-01,
+        3.49466716e-02, -3.82079639e-02,  2.49140086e-01, -2.39229314e-03,
+        1.12308241e-01, -3.09218069e-01, -9.30063910e-02, -6.47974591e-01,
+       -1.09130787e-01,  1.27415244e-01,  3.64444495e-01, -1.37639574e-01,
+        3.35972227e-01, -3.40580689e-02,  4.44524441e-01,  3.13220511e-01,
+        5.47302651e-01,  1.16563197e-01, -1.87988503e-01,  3.43959181e-01,
+       -3.07503736e-01,  3.11777308e-01, -6.16828769e-02, -8.95811760e-02,
+        2.96188162e-02,  5.12011946e-02, -2.96272268e-02, -3.80715809e-01,
+       -1.50483370e-01, -3.27847306e-01, -2.20086101e-02,  3.13314451e-01,
+       -2.92775231e-01,  3.23128768e-01, -2.66496937e-01, -1.43748360e-01,
+       -2.32004958e-02, -1.48621164e-01, -2.48843816e-01, -3.33674531e-01,
+        3.88025180e-01, -3.10981046e-01, -1.37342425e-01, -7.59519555e-01,
+       -2.63371460e-02,  7.37998526e-01, -8.12034096e-02, -1.52154179e-02,
+        1.70978648e-01, -1.71359117e-01, -3.44205925e-02, -2.27734228e-01,
+       -4.43368055e-02,  3.45979855e-01, -2.88909588e-01, -2.65929112e-01,
+        4.14281712e-01,  2.78917729e-01, -8.03062066e-02,  8.57266427e-02,
+        1.18687003e-01, -1.14344759e-01, -3.01930327e-01, -1.55687147e-01,
+        1.99569194e-01, -4.86879176e-02, -6.33875901e-01,  5.89483163e-03,
+        2.21390420e-01,  3.45599985e-01,  2.13382732e-01,  3.01168762e-01,
+       -4.35924188e-01,  4.43488201e-02, -1.51220697e+00, -1.74276452e-01,
+       -3.65771848e-01,  1.89627275e-03, -1.14667991e-01, -2.70961622e-01,
+        4.42304255e-02,  6.89348978e-02, -4.58449306e-01, -2.93741382e-01,
+        2.29089337e-01, -1.82035192e-01, -2.92753259e-01, -2.31802341e-01,
+       -2.10790282e-02,  1.38068117e-01, -7.27470242e-02, -4.94694046e-02,
+        2.32875205e-01,  6.33336961e-02,  8.79097153e-02, -1.03010536e-01,
+        2.69184666e-01, -1.84601149e-01, -2.50224101e-01,  3.14962701e-01,
+        4.98056705e-02, -1.26976966e-01,  7.71738460e-02, -7.89301339e-02,
+        2.01790648e-02,  2.04605624e-01,  1.17248521e-01,  2.59814689e-01,
+       -2.74151842e-01,  3.83741007e-01, -2.68002320e-02, -9.63153057e-02,
+        1.55391320e-01, -3.99256331e-02,  5.06989478e-02,  1.63703692e-01,
+        1.91668328e-01, -1.80263015e-01, -1.23361739e-01,  1.63648753e-01,
+       -3.04103385e-01, -4.27077128e-01,  2.77620729e-01, -9.67415321e-02,
+        2.31130951e-01,  1.54142071e-02,  6.15358986e-02, -2.60926883e-01,
+       -4.47153526e-01, -2.92435238e-01,  8.12157971e-02, -1.88231094e-01,
+       -3.22931642e-01, -1.99448813e-01, -8.81385183e-02, -2.87090698e-02,
+       -1.27350638e-01,  1.30386412e-01, -6.37787127e-01,  1.32164510e-01,
+        3.08506639e-01, -1.88553832e-01,  1.95700812e-01, -4.37078547e-02,
+       -1.75394592e-02, -4.40065540e-01, -5.36542554e-01,  1.64166303e-01,
+        5.45907421e-01,  1.56542560e-01,  1.16540422e-01,  9.66632571e-04,
+        9.69559771e-02, -2.26643568e-01, -8.69665737e-02, -5.35405880e-02,
+       -7.99901082e-02, -2.44840209e-01, -8.76877999e-02, -9.27622607e-02,
+       -3.00894901e-01, -3.39887070e-03,  3.11357067e-01,  4.07189517e-02,
+       -2.21600439e-01, -3.60788015e-01,  3.19031883e-01,  2.23624689e-01,
+        2.80872868e-01, -2.36591658e-01, -9.42767314e-02, -1.39046675e-01,
+       -4.43980862e-01, -1.86454679e-01, -7.65900126e-01,  1.11551143e-01,
+       -2.43723148e-01,  9.37748881e-02,  6.36624203e-01,  1.90807706e-01,
+        8.35391414e-02,  3.19085272e-01, -6.49489360e-01,  5.07006867e-01,
+       -2.28765594e-01,  2.85859834e-01,  2.24625705e-01, -8.90049867e-02,
+       -3.98789480e-01,  8.71933904e-02,  1.18249162e-01, -3.18145781e-01,
+        1.78055439e-01,  2.26366317e-01, -3.15203482e-01, -4.40947520e-01,
+        3.38096850e-01, -4.49965622e-01,  1.42066473e-02, -3.39831550e-01,
+        3.92713532e-01,  5.90663174e-02, -2.38712228e-01,  6.41466670e-01,
+       -2.85030900e-01,  6.21729414e-02, -9.77304536e-02, -3.00040946e-01,
+       -2.97187232e-01,  3.92339280e-01,  1.87068462e-01,  2.11489328e-01,
+       -3.44647502e-02,  2.51726854e-01,  7.48897213e-02, -3.26655908e-01,
+        1.44750098e-01, -1.18980755e-01, -4.25013793e-01,  3.20075207e-01,
+       -2.59467661e-01,  5.37226155e-02,  3.97564671e-01,  2.69343424e-01,
+       -6.85948780e-02,  9.26563621e-02, -4.98893746e-02, -6.95157227e-02,
+       -3.29992598e-01,  1.25720205e-01, -3.55791589e-01,  1.26242806e-01,
+       -6.49951861e-01,  3.76075404e-01, -2.06673554e-01,  3.82207305e-01,
+       -3.10282363e-02,  7.57504749e-02,  1.55914741e-01,  5.56194746e-02,
+       -8.35253569e-01,  3.50920908e-01,  3.84832599e-01,  1.09462514e-01,
+        2.70256003e-01,  5.10625220e-01,  5.51092977e-01,  1.74384144e-01,
+       -3.50614035e-01, -3.34277217e-01, -3.54784191e-01, -2.87177685e-01,
+        4.99683190e-02,  2.24784882e-01, -1.33490075e-01, -9.70372082e-02,
+        1.73615083e-01,  2.60234648e-02, -3.95324905e-01, -7.70567739e-02,
+       -1.79357711e-01,  1.41455017e-03, -1.31177940e-01, -2.89362660e-01,
+       -3.13671624e-01,  6.49948977e-02,  1.79785255e-01,  4.74626359e-02,
+       -1.64015027e-01, -2.17995352e-01, -2.26468438e-01, -6.28176924e-02,
+       -1.57521523e-01,  6.23632567e-01, -2.54159194e-01,  1.15677341e-01,
+       -2.90639942e-01,  6.39087348e-02,  1.72163894e-01,  3.88812160e-02,
+        1.92454472e-01, -2.85471692e-02,  3.20637850e-01, -4.17557121e-01,
+        1.50833755e-01, -2.04130304e-01, -2.82519476e-02, -3.62708800e-02,
+       -3.78440804e-01, -2.04566649e-01,  2.77854180e-01, -1.60775754e-02,
+        5.50604244e-02, -7.41366725e-02, -9.93987413e-02, -1.77133628e-01,
+       -1.02912702e-01, -1.38976741e-01,  3.45153167e-01,  2.50997968e-01,
+        7.99397118e-02,  2.67701746e-02,  1.89692127e-01, -3.12825816e-01,
+        1.81685133e-01,  2.66654955e-01,  3.43002589e-01, -3.16892558e-02,
+        2.42914196e-01, -6.46489161e-02, -2.04206799e-02,  2.71089782e-01,
+        5.38655341e-02, -3.36618007e-01, -1.01921631e-01, -4.29143324e-01,
+       -5.41282909e-01,  1.45635926e-01,  2.53592168e-01,  4.73999240e-01,
+       -2.67600046e-02,  6.92800219e-02,  1.20670657e-01, -9.79204953e-02,
+        1.88411441e-01,  1.31600191e-01, -8.82679875e-02, -1.35876152e-02,
+       -4.60006569e-02, -3.28914093e-01, -2.53882089e-02,  1.36890845e-01,
+        1.36800923e-01, -2.81603578e-02, -7.41544997e-02, -3.50670230e-01,
+       -1.47895412e-01, -1.38183406e-02, -5.40148021e-01,  1.72147182e-01,
+       -9.04995192e-02, -3.46205831e-01, -4.27066303e-01, -4.20498124e-02,
+       -1.60768594e-02,  1.37312223e-01, -2.33325848e-01, -7.37807003e-01,
+       -3.29860605e-02,  2.99161372e-01, -1.78812797e-02, -2.47173257e-01,
+       -7.59371836e-02,  4.61813127e-01,  1.68406692e-01,  1.92856446e-01,
+        7.54824581e-02, -1.58349485e-01,  1.09601143e-02, -1.28365748e-01,
+        1.70828044e-01, -3.08887347e-01, -1.36556301e-01, -2.38368929e-01,
+       -3.97531522e-01,  3.92004885e-01, -1.28452518e-02, -1.80829500e-01,
+        1.25799977e-01, -3.03000605e-01, -1.77052567e-01, -2.04647400e-01,
+        3.25466613e-02, -2.41881148e-02,  1.62766986e-01, -1.43820311e-01,
+       -5.04157930e-02, -1.85014527e-01,  2.10645772e-02, -4.33872534e-01,
+        1.59982140e-01, -1.64299846e-03,  2.43686983e-01,  1.70785223e-01,
+        2.30113104e-01,  1.38455863e-01,  2.66836560e-01, -1.79598745e-01,
+        4.21021932e-02, -1.02896491e-01,  1.23836463e-01, -2.82453969e-01,
+        1.23999645e-01,  2.22477330e-02, -5.04001393e-01,  3.48414817e-01,
+       -1.12281302e-01,  3.42978234e-02, -4.57056602e-01,  1.62765892e-01,
+        5.52198122e-01,  1.80880595e-02,  3.96701326e-01,  4.54620270e-01,
+       -2.10907196e-01,  2.28880908e-01,  2.34870333e-01, -1.94063654e-02,
+        6.64859958e-01,  2.80345134e-01, -3.63137289e-01, -3.66841105e-01,
+       -2.54465594e-01,  8.14272925e-03,  2.27381732e-01,  3.74495899e-01,
+        1.45539348e-01,  1.59751488e-01, -6.30061729e-02,  1.89022063e-01,
+       -1.48171686e-02,  1.38539439e-01,  5.88759680e-01, -5.95510209e-01,
+        3.53989463e-01,  2.25220668e-02, -1.56378851e-02,  1.05136262e-01,
+       -3.52896657e-01,  2.76151546e-01,  3.44540896e-02,  3.50164340e-01,
+       -4.60392955e-02, -2.65823777e-01,  1.81702866e-01, -2.43520950e-01,
+       -1.96229124e-02, -5.31947485e-01, -1.35582976e-01,  2.50853512e-01,
+       -4.41926323e-01,  3.62770541e-01,  7.27260298e-02, -1.62189592e-01,
+        3.34751977e-01, -7.16814934e-02,  2.73794870e-01, -5.91515896e-01,
+        1.46431576e-01,  2.02101489e-01, -2.56844397e-02,  1.14579267e-01,
+       -1.95610237e-01,  4.69716809e-01,  1.61369998e-01, -1.90980928e-01,
+        2.38007362e-01, -2.80721454e-01, -2.78561780e-01,  1.44712748e-01,
+        1.48179229e-01, -2.00034997e-01, -1.07514465e-01,  2.70373733e-01,
+       -2.10133996e-01, -1.60667710e-01, -6.16274789e-02, -1.28005526e-01,
+        7.49513854e-02, -2.90742738e-01,  1.93939051e-01, -2.05492046e-01,
+        4.19103890e-01,  9.75819673e-02,  4.85921606e-02,  2.03852179e-01,
+        9.11948865e-02,  1.99579865e-02,  1.77172204e-01, -3.12619519e-01,
+       -2.61246140e-01,  1.43905204e-01, -4.90241118e-02,  4.35794582e-01,
+       -5.20849803e-02,  3.76710310e-01,  3.25915204e-02,  2.11277129e-01,
+       -7.41138792e-01,  3.26741840e-01,  2.39601065e-01,  1.10739718e-01,
+       -3.17822671e-01, -8.61806299e+00,  9.52389627e-02,  7.96646756e-02,
+        2.93297418e-01, -2.80020401e-01, -1.39964085e-01,  2.52161353e-01,
+       -1.35567432e-02, -2.26989774e-02,  1.27800249e-01, -3.05359525e-01,
+       -1.52887251e-01,  2.08413560e-01,  3.20186575e-01, -6.72507985e-02,
+        5.03335479e-02, -1.70172003e-02,  1.89685732e-02,  4.63024794e-01,
+        3.68777279e-01, -2.63641123e-01,  4.74930180e-01,  1.40488326e-01,
+       -8.18027070e-02, -2.68529886e-01,  2.82665927e-01,  6.61303237e-02,
+        1.29008442e-01, -4.89655294e-02, -3.31182446e-01, -2.71848211e-01,
+        9.52345875e-02,  2.32269483e-01, -1.16987027e-01,  3.28745369e-01,
+       -2.22841941e-01, -2.34203350e-01, -2.70985595e-01, -1.29444569e-01,
+       -2.53518707e-01, -8.79739693e-02, -5.85277496e-02, -1.61999643e-01,
+       -1.11503740e-01,  4.23579811e-02, -4.60137707e-01,  2.83383777e-01,
+       -1.22414319e-01, -6.79796530e-02,  1.93780397e-02,  7.32484074e-01,
+        5.45846062e-01,  2.92545398e-01, -2.38406249e-01, -4.54096498e-01,
+        1.84990191e-01,  8.29442623e-02,  7.64698229e-01, -1.96694041e-01,
+       -1.55447797e-01, -6.16484372e-02, -2.35688303e-01,  5.26978582e-01,
+       -4.01506636e-01, -1.63109796e-02,  1.50099657e-01, -2.87141284e-01,
+        2.13413746e-01,  3.94801123e-01,  1.62935957e-01, -1.68704559e-01,
+        1.12991023e-01,  9.81865044e-02,  1.32157127e-01,  1.71225537e-01,
+        1.83052670e-01,  9.55172068e-02,  5.24959982e-01,  4.99606745e-01,
+        1.19440875e-02, -3.35425381e-01,  1.45003053e-01,  3.59255278e-01,
+       -1.67158916e-01,  1.77617667e-01, -4.36979976e-01, -3.49355287e-01,
+        2.31738510e-01,  3.67914073e-01,  1.93907453e-02,  1.16912702e-01,
+        1.74503389e-02, -1.55120871e-01, -1.61343978e-01, -3.28954181e-01,
+        2.21053954e-01,  1.87983004e-01,  8.24936402e-02,  5.94574311e-02,
+        1.72519128e-02,  2.10230633e-02, -1.84851872e-01,  3.36430473e-01,
+       -2.15803010e-01, -6.12353443e-02,  4.09894300e-01,  2.45641585e-01,
+        1.04550628e-01, -2.38096454e-01, -1.16543559e-01, -1.54966436e-03,
+       -2.31003563e-02,  5.50880322e-01, -1.27767102e-01,  1.02667347e-01,
+        6.60462345e-02,  6.75835791e-02, -1.40280121e-01,  3.48183357e-01,
+        9.04128535e-02, -8.88662487e-04,  4.12558329e-01,  6.09933036e-02,
+        4.00535643e-03,  8.17493171e-02, -1.74851559e-01,  4.14163401e-01,
+       -2.21267514e-01,  3.22880022e-01,  6.60952233e-02,  1.39731877e-01,
+        3.56913240e-01,  7.82197601e-02,  4.72224698e-02,  4.34219269e-01,
+        6.83960696e-02, -9.83476625e-02,  8.13968383e-02, -2.75832703e-01,
+        6.42474362e-02, -9.49411102e-02,  1.17249112e-01,  1.65016682e-01,
+        3.77451659e-01, -1.31733929e-01, -3.44713897e-01, -1.21130501e-01,
+       -5.80510607e-01, -5.46739525e-01,  3.75455625e-02, -4.68422410e-01,
+        9.64440262e-02, -1.72541905e-01, -1.29727458e-01,  1.32633378e-01,
+       -1.73760652e-01,  1.01996172e-01,  1.01585954e-01, -2.85896402e-01,
+        1.58436935e-01, -4.59176198e-01,  1.73786902e-01,  8.18366714e-02,
+        7.00442674e-01, -1.98326819e-01,  2.94743979e-01,  3.52743015e-02,
+        2.22605144e-01, -1.30819979e-02,  1.16567900e-01, -3.01994325e-01,
+        7.83733331e-02,  2.23938592e-01, -2.72533664e-02, -1.90063996e-01,
+        8.89374830e-02,  3.06774073e-01, -1.02480606e-01, -2.11755104e-01,
+        2.37014461e-01,  2.28248514e-01, -1.65700737e-01, -2.41899376e-01,
+       -3.77642381e-01,  3.86348678e-01,  4.29830121e-01, -2.97950326e-01,
+        1.12907992e-01,  1.22367872e-01, -5.68499511e-02,  2.01587866e-01,
+       -8.57835585e-02, -5.04362899e-02,  3.01666569e-01, -4.23810691e-03,
+        2.16876436e-01, -1.64151144e-01, -6.26414779e-02,  5.28928883e-03,
+        4.45412937e-01,  3.85901711e-02,  7.20093945e-02,  1.23042378e-02,
+       -1.18560966e-01, -5.02411846e-02, -4.14986977e-02,  2.58403375e-01,
+        6.92652225e-02, -1.69070760e-01,  5.04333439e-02, -9.04988231e-02])]
+2025-05-19 17:15:00,039 - INFO - Saved 3D cluster visualization data to Outputs/tsne_clusters_k=4.csv
