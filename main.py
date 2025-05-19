@@ -198,6 +198,8 @@ def generate_wordclouds(clustered_data, cluster_col, output_dir):
         plt.imshow(wordcloud, interpolation="bilinear")
         plt.axis("off")
         plt.tight_layout(pad=0)
+        logging.info(f"Generating wordcloud for cluster {cluster_label}")
+        plt.title(f"Wordcloud for Cluster {cluster_label}", fontsize=20)
         plt.savefig(os.path.join(output_dir, f"wordcloud_cluster_{cluster_label}.png"), dpi=300)
         plt.close()
 
@@ -270,7 +272,7 @@ def main():
 
     logging.info("Beginning KMeans clustering.")
     # Try multiple values of k for Kmeans.
-    for k in [4, 5, 6]:
+    for k in [3, 4, 5]:
 
         k_model, clustered_data = kmeans(sentences_with_embeddings, k=k)
         kmeans_models.append(k_model)
@@ -293,9 +295,9 @@ def main():
 
         visualize_clusters_and_save(reduced_df, filename=f"Outputs/tsne_clusters_k={k}.csv")
         
-        evaluate_clusters(clustered_data)
+        # evaluate_clusters(clustered_data)
         
-        generate_wordclouds(clustered_data.select("sentence", "prediction"), "prediction", output_dir=f"Outputs/wordclouds_k={k}")
+        generate_wordclouds(clustered_data.select("sentence", "cluster"), "cluster", output_dir="Outputs/wordclouds/")
 
     # evaluate_clusters()
     # visualize_clusters_and_save()
