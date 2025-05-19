@@ -67,6 +67,14 @@ stopwords = nlp.Defaults.stop_words
 
 @udf(ArrayType(StringType()))
 def tokenize_filter_lemmatize(sentence: str):
+    """
+    Processes a given sentence by tokenizing, filtering, and lemmatizing its words.
+    This function performs the following steps:
+    1. Tokenizes the input sentence using a natural language processing (NLP) model.
+    2. Filters out tokens that are not alphabetic, are in the stopwords list, or have a lemma length of 2 or less.
+    3. Converts the remaining tokens to their lowercase lemmatized forms.
+    """
+
     if not sentence:
         return []
     doc = nlp(sentence)
@@ -100,6 +108,10 @@ def preprocess_sentences(unprocessed_sentences: DataFrame) -> DataFrame:
     return processed_sentences
 
 def get_clinicalbert_embeddings(tokens_list):
+    """
+    Load the ClinicalBERT model and tokenizer from Hugging Face.
+    This function returns a function that takes a list of tokens and returns their embeddings.
+    """
     model_name = "emilyalsentzer/Bio_ClinicalBERT"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModel.from_pretrained(model_name)
@@ -115,6 +127,9 @@ def get_clinicalbert_embeddings(tokens_list):
     return embed
 
 def extract_features(sentences, method="tf", vocab_size: int = 5000, min_df: int = 2):
+    """
+    Extract features from sentences using either TF-IDF or ClinicalBERT embeddings.
+    """
     if method == "tf":
         vectorizer = CountVectorizer(inputCol="tokens", outputCol="features", vocabSize=vocab_size, minDF=min_df)
         model = vectorizer.fit(sentences)
@@ -129,6 +144,9 @@ def extract_features(sentences, method="tf", vocab_size: int = 5000, min_df: int
         return embedded_data, None
 
 def kmeans(data: DataFrame, k: int):
+    """
+    Perform KMeans clustering on a DataFrame that contains a 'features' column.
+    """
     logging.info(f"Running KMeans with k={k}")
 
     to_vector_udf = udf(lambda arr: Vectors.dense([float(x) for x in arr]), VectorUDT())
@@ -139,7 +157,7 @@ def kmeans(data: DataFrame, k: int):
     clustered_data = model.transform(vectorized_data)
     return model, clustered_data
 
-def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 20):
+def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 10):
     """
     Perform LDA on a DataFrame that contains a 'features' column.
     """
@@ -159,15 +177,22 @@ def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 20):
     return lda_model, perplexity
 
 def evaluate_clusters(clustered_data):
-    pandas_df = clustered_data.select("features", "prediction").toPandas()
+    """
+    Evaluate the clustering using silhouette score.
+    """
+    pandas_df = clustered_data.select("features", "cluster").toPandas()
     X = pandas_df["features"].apply(lambda x: list(map(float, x))).tolist()
-    y = pandas_df["prediction"].tolist()
+
+    y = pandas_df["cluster"].tolist()
 
     score = silhouette_score(X, y)
     logging.info(f"Silhouette Score: {score:.4f}")
     return score
 
 def generate_wordclouds(clustered_data, cluster_col, output_dir):
+    """
+    Generate word clouds for each cluster in the clustered data.
+    """
     os.makedirs(output_dir, exist_ok=True)
 
     # Ensure necessary columns exist
@@ -214,6 +239,9 @@ def generate_wordclouds(clustered_data, cluster_col, output_dir):
             logging.error(f"Failed to generate wordcloud for cluster {cluster_label}: {e}")
 
 def dimensionality_reduction(clustered_data):
+    """
+    Perform dimensionality reduction using t-SNE.
+    """
     pandas_df = clustered_data.select("features", "cluster").toPandas()
     X = np.array(pandas_df["features"].tolist())
     y = pandas_df["cluster"].tolist()
@@ -224,6 +252,9 @@ def dimensionality_reduction(clustered_data):
     return result_df
 
 def visualize_clusters_and_save(reduced_df, k, filename="Outputs/tsne_clusters.csv", algorithm="KMeans"):
+    """
+    Visualize clusters in 3D using t-SNE and save the figure.
+    """
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection='3d')
     scatter = ax.scatter(reduced_df['x'], reduced_df['y'], reduced_df['z'], c=reduced_df['cluster'], cmap='tab10')
@@ -241,7 +272,7 @@ def main():
     # sentences = spark.read.csv(DATA_PATH, header=True, inferSchema=True)
     
     # Read in only the first 2000 records for development and test.
-    sentences = spark.read.csv(DATA_PATH, header=True, inferSchema=True).limit(200)
+    sentences = spark.read.csv(DATA_PATH, header=True, inferSchema=True).limit(1000)
 
     logging.info(f"Number of sentences in dataframe: {sentences.count()}")
 
@@ -252,22 +283,28 @@ def main():
         # Extract term frequency features
     sentences_with_features, lda_vocab = extract_features(sentences, vocab_size=5000, min_df=2)
 
-    lda_models = []
-    perplexities = []
-
     # Try multiple values of k for LDA and compare perplexity
     get_dominant_topic = udf(lambda dist: int(np.argmax(dist)), IntegerType())
 
-    for k in [3, 4, 5, 8]:
-        model = LDA(k=k, maxIter=20, seed=SEED, featuresCol="features").fit(sentences_with_features)
+    results = []
+
+    for k in [4, 5, 6]:
+        model, perplexity = lda(sentences_with_features, lda_vocab, k=k)
         transformed = model.transform(sentences_with_features)
         transformed = transformed.withColumn("features", col("topicDistribution"))
         transformed = transformed.withColumn("cluster", get_dominant_topic(col("topicDistribution")))
 
         reduced_df = dimensionality_reduction(transformed)
+
         visualize_clusters_and_save(reduced_df, k=k, filename=f"Outputs/tsne_clusters_k={k}_LDA.csv", algorithm="LDA")
+        
         generate_wordclouds(transformed.select("tokens", "cluster"), "cluster", output_dir=f"Outputs/wordclouds_lda_k={k}")
 
+        silhouette = evaluate_clusters(transformed.select("features", "cluster"))
+
+        results.append({"algorithm": "LDA", "k": k, "perplexity": perplexity, "silhouette": silhouette})
+
+    # pd.DataFrame(results).to_csv("Outputs/clustering_evaluation.csv", index=False)
 
     # Convert to pandas dataframd and save to CSV for local testing
     # and debugging
@@ -276,15 +313,7 @@ def main():
     # logging.info("Saved processed sentences to Outputs/sentences_preprocessed.csv")
 
 
-    # TODO(P1): Perform NER to remove medication names or use a list. 
-    
-    # TODO: Put this in a for loop with different hyperparameters
-
-    #TODO: Evaluation On LDA best fit
-    # evaluate_clusters()
-    # visualize_clusters_and_save()
-    # dimensionality_reduction()
-
+    # TODO(P2 feature): Perform NER to remove medication names or use a list. 
 
     ## K-means ##
 
@@ -312,8 +341,6 @@ def main():
         # clustered_data_pd.to_csv(f"Outputs/kmeans_clusters_k{k}.csv", index=False)  # Save to CSV
         # logging.info(f"Saved KMeans clusters with k={k} to Outputs/kmeans_clusters_k{k}.csv")
 
-        logging.info(f"Kmeans Model with k={k} with clusters: {k_model.clusterCenters()}")
-
         reduced_df = dimensionality_reduction(clustered_data)
 
         visualize_clusters_and_save(reduced_df, k,filename=f"Outputs/tsne_clusters_k={k}.csv")
@@ -321,6 +348,12 @@ def main():
         # evaluate_clusters(clustered_data)
         
         generate_wordclouds(clustered_data.select("sentence", "cluster"), "cluster", output_dir="Outputs/wordclouds/")
+    
+        silhouette = evaluate_clusters(clustered_data.select("features", "cluster"))
+
+        results.append({"algorithm": "KMeans", "k": k, "silhouette": silhouette})
+
+    pd.DataFrame(results).to_csv("Outputs/clustering_evaluation.csv", index=False)
 
     # evaluate_clusters()
     # visualize_clusters_and_save()
