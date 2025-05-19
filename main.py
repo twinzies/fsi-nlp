@@ -11,8 +11,9 @@ Requirements:
 - PySpark
 - Matplotlib
 """
-from pyspark import SparkSession
 import logging
+
+from pyspark import SparkSession
 
 DATA_PATH = "data/labeled_starter.csv"
 SEED = 314159
@@ -29,6 +30,18 @@ def init_spark():
         .getOrCreate()
 
 def preprocessing():
+    # TODO(P1): Expand to discharge.csv.
+    # TODO(P0): First work with the labeled_starter.csv dataset
+    
+    # 
+    pass
+
+def _get_cbert_embeddings():
+    pass
+
+def get_features():
+    # TODO(PO.1): Get features by using bag of words and frequency counts (LDA).
+    # TODO(PO.2): Get features by using Clinical Bert embeddings
     pass
 
 def lda():
@@ -51,6 +64,7 @@ def main():
 
     spark = init_spark()
     preprocessing()
+    get_features()
     
     # TODO: Put this in a for loop with different hyperparameters
     lda()
