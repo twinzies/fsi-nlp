@@ -39,7 +39,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler(log_file_path),
+        logging.FileHandler(log_file_path, mode='w'),
         logging.StreamHandler()
     ]
 )
@@ -130,7 +130,8 @@ def kmeans(data: DataFrame, k: int):
 
     kmeans = KMeans(featuresCol="features_vec", predictionCol=f"prediction_{k}", k=k, seed=SEED)
     model = kmeans.fit(vectorized_data)
-    return model, vectorized_data
+    clustered_data = model.transform(vectorized_data)
+    return model, clustered_data
 
 def lda(sentences: DataFrame, vocabulary, k: int = 5, max_iter: int = 20):
     """
@@ -225,10 +226,11 @@ def main():
 
         k_cluster_labels.append(clustered_data)
 
+        logging.info(f"Columns in clustered_data: {clustered_data.columns}")
 
         # Save the clustered data with cluster labels
         clustered_data = clustered_data.select("sentence", "tokens", col(f"prediction_{k}").alias("cluster"))
-        
+
         clustered_data_pd = clustered_data.toPandas()  # Convert to pandas DataFrame
         clustered_data_pd.to_csv(f"Outputs/kmeans_clusters_k{k}.csv", index=False)  # Save to CSV
         logging.info(f"Saved KMeans clusters with k={k} to Outputs/kmeans_clusters_k{k}.csv")
@@ -239,6 +241,13 @@ def main():
     evaluate_clusters()
 
     visualize_clusters_and_save()
+    spark.stop()
+
+    # unpersist
+    sentences.unpersist()
+    sentences_with_features.unpersist()
+    sentences_with_embeddings.unpersist()
+    # Stop the Spark session
     spark.stop()
 
 if __name__ == "__main__":
