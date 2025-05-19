@@ -1,15 +1,16 @@
 """
-Functional Status Information An unsupervised clustering analysis for unlabeled data
+Functional Status Information analysis with unsupervised clustering methods for unlabeled data.
 Author: Tara Jain
 Student ID: acp24tkj
 Date: 19/05/2025
 
 Description:
-This script performs an unsupervised clustering analysis on the MIMIC IV dataset with Pyspark intended to ensure scalability.
+This script performs an unsupervised clustering analysis with LDA and Kmeans on the MIMIC IV dataset with Pyspark intended to ensure scalability.
 
 Requirements:
 - PySpark
 - Matplotlib
+- Spacy
 """
 import logging
 import os
@@ -58,7 +59,10 @@ def tokenize_filter_lemmatize(sentence: str):
     if not sentence:
         return []
     doc = nlp(sentence)
-    tokens = [token.lemma_ for token in doc if token.is_alpha and token.text.lower() not in stopwords]
+    tokens = [
+        token.lemma_.lower() for token in doc
+        if token.is_alpha and token.text.lower() not in stopwords and len(token.lemma_) > 2
+    ]
     return tokens if tokens else None
 
 def preprocess_sentences(unprocessed_sentences: DataFrame) -> DataFrame:
@@ -78,7 +82,7 @@ def preprocess_sentences(unprocessed_sentences: DataFrame) -> DataFrame:
         tokenize_filter_lemmatize(col("sentence"))
     ).filter(
         col("tokenized").isNotNull()
-    )
+    ).cache()
 
     logging.info(f"Number of processed sentences: {processed_sentences.count()}")
 
@@ -132,7 +136,7 @@ def main():
     # sentences_pd.to_csv("Outputs/sentences_preprocessed.csv", index=False)
     # logging.info("Saved processed sentences to Outputs/sentences_preprocessed.csv")
 
-    # TODO: Appends a column with features comprising of words extracted from the sentences to the Spark DataFrame - sentences. 
+    # TODO: Perform NER to remove medication names. 
     extract_features()
     
     # TODO: Put this in a for loop with different hyperparameters

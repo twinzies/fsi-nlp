@@ -303,3 +303,10 @@ py4j.protocol.Py4JNetworkError: Error while sending or receiving
 2025-05-19 09:36:31,189 - INFO - NumExpr defaulting to 8 threads.
 2025-05-19 09:36:33,211 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
 2025-05-19 09:36:33,213 - INFO - Closing down clientserver connection
+2025-05-19 09:47:48,389 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:47:48,389 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 09:47:51,078 - INFO - Number of processed sentences: 200
+2025-05-19 09:47:52,879 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 09:47:53,103 - INFO - NumExpr defaulting to 8 threads.
+2025-05-19 09:47:55,078 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
+2025-05-19 09:47:56,031 - INFO - Closing down clientserver connection
