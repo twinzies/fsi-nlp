@@ -310,3 +310,223 @@ py4j.protocol.Py4JNetworkError: Error while sending or receiving
 2025-05-19 09:47:53,103 - INFO - NumExpr defaulting to 8 threads.
 2025-05-19 09:47:55,078 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
 2025-05-19 09:47:56,031 - INFO - Closing down clientserver connection
+2025-05-19 09:59:27,592 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:59:27,592 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 09:59:30,659 - INFO - Number of processed sentences: 200
+2025-05-19 09:59:30,700 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 09:59:30,918 - INFO - NumExpr defaulting to 8 threads.
+2025-05-19 09:59:31,149 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
+2025-05-19 09:59:31,542 - INFO - Closing down clientserver connection
+2025-05-19 10:34:19,767 - INFO - Number of sentences in dataframe: 200
+2025-05-19 10:34:19,768 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 10:34:22,619 - INFO - Number of processed sentences: 200
+2025-05-19 10:34:22,662 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 10:34:22,999 - INFO - Running LDA with k=5, maxIter=20
+2025-05-19 10:34:25,199 - INFO - Top terms per topic:
+2025-05-19 10:34:25,220 - INFO - Topic 0: [0, 11, 22, 19, 35, 45, 23, 32, 65, 12]
+2025-05-19 10:34:25,220 - INFO - Topic 1: [1, 2, 8, 10, 9, 4, 14, 13, 25, 15]
+2025-05-19 10:34:25,220 - INFO - Topic 2: [6, 5, 7, 3, 20, 29, 21, 42, 47, 41]
+2025-05-19 10:34:25,220 - INFO - Topic 3: [97, 105, 231, 89, 96, 190, 259, 213, 278, 122]
+2025-05-19 10:34:25,220 - INFO - Topic 4: [70, 125, 122, 112, 43, 83, 76, 93, 5, 100]
+2025-05-19 10:34:25,239 - INFO - LDA Model with k=5 Perplexity: 5.7354
+2025-05-19 10:34:25,239 - INFO - Running LDA with k=10, maxIter=20
+2025-05-19 10:34:26,235 - INFO - Top terms per topic:
+2025-05-19 10:34:26,241 - INFO - Topic 0: [0, 11, 22, 35, 23, 12, 50, 65, 62, 81]
+2025-05-19 10:34:26,241 - INFO - Topic 1: [1, 2, 9, 8, 13, 15, 4, 14, 18, 10]
+2025-05-19 10:34:26,241 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
+2025-05-19 10:34:26,241 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
+2025-05-19 10:34:26,241 - INFO - Topic 4: [0, 6, 3, 19, 20, 21, 1, 47, 29, 42]
+2025-05-19 10:34:26,241 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
+2025-05-19 10:34:26,241 - INFO - Topic 6: [1, 2, 10, 69, 25, 74, 96, 33, 0, 120]
+2025-05-19 10:34:26,241 - INFO - Topic 7: [5, 7, 17, 16, 27, 46, 28, 158, 48, 58]
+2025-05-19 10:34:26,241 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
+2025-05-19 10:34:26,241 - INFO - Topic 9: [79, 224, 94, 99, 92, 180, 241, 130, 139, 72]
+2025-05-19 10:34:26,254 - INFO - LDA Model with k=10 Perplexity: 6.7556
+2025-05-19 10:34:26,254 - INFO - Running LDA with k=15, maxIter=20
+2025-05-19 10:34:27,206 - INFO - Top terms per topic:
+2025-05-19 10:34:27,212 - INFO - Topic 0: [0, 11, 22, 19, 35, 2, 32, 23, 12, 65]
+2025-05-19 10:34:27,213 - INFO - Topic 1: [1, 2, 9, 8, 13, 14, 15, 4, 18, 26]
+2025-05-19 10:34:27,213 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
+2025-05-19 10:34:27,213 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
+2025-05-19 10:34:27,213 - INFO - Topic 4: [47, 205, 182, 171, 253, 159, 213, 128, 77, 187]
+2025-05-19 10:34:27,213 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
+2025-05-19 10:34:27,213 - INFO - Topic 6: [185, 69, 155, 10, 122, 178, 47, 48, 86, 120]
+2025-05-19 10:34:27,213 - INFO - Topic 7: [133, 76, 217, 106, 168, 265, 162, 96, 41, 147]
+2025-05-19 10:34:27,213 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
+2025-05-19 10:34:27,213 - INFO - Topic 9: [126, 241, 101, 11, 275, 88, 80, 250, 63, 3]
+2025-05-19 10:34:27,213 - INFO - Topic 10: [262, 144, 145, 126, 147, 245, 177, 226, 119, 221]
+2025-05-19 10:34:27,213 - INFO - Topic 11: [1, 6, 3, 10, 20, 0, 41, 2, 21, 29]
+2025-05-19 10:34:27,213 - INFO - Topic 12: [247, 173, 129, 81, 277, 157, 57, 146, 29, 147]
+2025-05-19 10:34:27,213 - INFO - Topic 13: [5, 7, 16, 17, 27, 46, 28, 158, 48, 58]
+2025-05-19 10:34:27,213 - INFO - Topic 14: [136, 54, 225, 1, 219, 30, 24, 246, 205, 40]
+2025-05-19 10:34:27,223 - INFO - LDA Model with k=15 Perplexity: 8.2095
+2025-05-19 10:34:27,379 - INFO - NumExpr defaulting to 8 threads.
+2025-05-19 10:34:27,572 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
+2025-05-19 10:34:27,667 - INFO - Running LDA with k=5, maxIter=20
+2025-05-19 10:34:28,510 - INFO - Top terms per topic:
+2025-05-19 10:34:28,515 - INFO - Topic 0: [0, 11, 22, 19, 35, 45, 23, 32, 65, 12]
+2025-05-19 10:34:28,515 - INFO - Topic 1: [1, 2, 8, 10, 9, 4, 14, 13, 25, 15]
+2025-05-19 10:34:28,515 - INFO - Topic 2: [6, 5, 7, 3, 20, 29, 21, 42, 47, 41]
+2025-05-19 10:34:28,515 - INFO - Topic 3: [97, 105, 231, 89, 96, 190, 259, 213, 278, 122]
+2025-05-19 10:34:28,515 - INFO - Topic 4: [70, 125, 122, 112, 43, 83, 76, 93, 5, 100]
+2025-05-19 10:34:28,524 - INFO - Running LDA with k=10, maxIter=20
+2025-05-19 10:34:29,260 - INFO - Top terms per topic:
+2025-05-19 10:34:29,266 - INFO - Topic 0: [0, 11, 22, 35, 23, 12, 50, 65, 62, 81]
+2025-05-19 10:34:29,266 - INFO - Topic 1: [1, 2, 9, 8, 13, 15, 4, 14, 18, 10]
+2025-05-19 10:34:29,266 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
+2025-05-19 10:34:29,266 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
+2025-05-19 10:34:29,266 - INFO - Topic 4: [0, 6, 3, 19, 20, 21, 1, 47, 29, 42]
+2025-05-19 10:34:29,267 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
+2025-05-19 10:34:29,267 - INFO - Topic 6: [1, 2, 10, 69, 25, 74, 96, 33, 0, 120]
+2025-05-19 10:34:29,267 - INFO - Topic 7: [5, 7, 17, 16, 27, 46, 28, 158, 48, 58]
+2025-05-19 10:34:29,267 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
+2025-05-19 10:34:29,267 - INFO - Topic 9: [79, 224, 94, 99, 92, 180, 241, 130, 139, 72]
+2025-05-19 10:34:29,274 - INFO - Running LDA with k=15, maxIter=20
+2025-05-19 10:34:30,174 - INFO - Top terms per topic:
+2025-05-19 10:34:30,182 - INFO - Topic 0: [0, 11, 22, 19, 35, 2, 32, 23, 12, 65]
+2025-05-19 10:34:30,183 - INFO - Topic 1: [1, 2, 9, 8, 13, 14, 15, 4, 18, 26]
+2025-05-19 10:34:30,183 - INFO - Topic 2: [246, 20, 206, 185, 224, 48, 274, 116, 219, 42]
+2025-05-19 10:34:30,183 - INFO - Topic 3: [278, 122, 123, 99, 62, 177, 254, 160, 85, 242]
+2025-05-19 10:34:30,183 - INFO - Topic 4: [47, 205, 182, 171, 253, 159, 213, 128, 77, 187]
+2025-05-19 10:34:30,183 - INFO - Topic 5: [232, 184, 230, 183, 151, 112, 132, 97, 89, 266]
+2025-05-19 10:34:30,183 - INFO - Topic 6: [185, 69, 155, 10, 122, 178, 47, 48, 86, 120]
+2025-05-19 10:34:30,183 - INFO - Topic 7: [133, 76, 217, 106, 168, 265, 162, 96, 41, 147]
+2025-05-19 10:34:30,183 - INFO - Topic 8: [254, 248, 66, 197, 194, 108, 251, 52, 128, 74]
+2025-05-19 10:34:30,183 - INFO - Topic 9: [126, 241, 101, 11, 275, 88, 80, 250, 63, 3]
+2025-05-19 10:34:30,183 - INFO - Topic 10: [262, 144, 145, 126, 147, 245, 177, 226, 119, 221]
+2025-05-19 10:34:30,183 - INFO - Topic 11: [1, 6, 3, 10, 20, 0, 41, 2, 21, 29]
+2025-05-19 10:34:30,183 - INFO - Topic 12: [247, 173, 129, 81, 277, 157, 57, 146, 29, 147]
+2025-05-19 10:34:30,183 - INFO - Topic 13: [5, 7, 16, 17, 27, 46, 28, 158, 48, 58]
+2025-05-19 10:34:30,183 - INFO - Topic 14: [136, 54, 225, 1, 219, 30, 24, 246, 205, 40]
+2025-05-19 10:34:30,532 - INFO - Closing down clientserver connection
+2025-05-19 10:37:24,777 - INFO - Number of sentences in dataframe: 200
+2025-05-19 10:37:24,777 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 10:37:27,672 - INFO - Number of processed sentences: 200
+2025-05-19 10:37:27,715 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 10:37:28,055 - INFO - Running LDA with k=5, maxIter=20
+2025-05-19 10:37:30,277 - INFO - Closing down clientserver connection
+2025-05-19 10:42:28,877 - INFO - Number of sentences in dataframe: 200
+2025-05-19 10:42:28,877 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 10:42:30,014 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+2025-05-19 10:42:30,015 - INFO - Closing down clientserver connection
+2025-05-19 10:42:30,015 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 10:42:30,018 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2025-05-19 10:42:30,020 - INFO - Closing down clientserver connection
+2025-05-19 10:42:30,020 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 10:42:30,020 - INFO - Closing down clientserver connection
+2025-05-19 10:42:30,026 - INFO - Closing down clientserver connection
+2025-05-19 10:44:12,249 - INFO - Number of sentences in dataframe: 200
+2025-05-19 10:44:12,250 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 10:44:15,128 - INFO - Number of processed sentences: 200
+2025-05-19 10:44:15,180 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 10:44:15,509 - INFO - Running LDA with k=5, maxIter=20
+2025-05-19 10:44:18,306 - INFO - Topic 0: walk, able, stair, activity, sudden, right, leg, week, trouble, difficulty
+2025-05-19 10:44:18,307 - INFO - Topic 1: ambulate, pain, control, discharge, tolerate, patient, assistance, diet, oral, medication
+2025-05-19 10:44:18,307 - INFO - Topic 2: day, run, incision, time, continue, amount, rest, plenty, drink, adequate
+2025-05-19 10:44:18,307 - INFO - Topic 3: give, brace, pressure, admission, baseline, low, wear, htn, normal, avoid
+2025-05-19 10:44:18,307 - INFO - Topic 4: follow, strenuous, avoid, heavy, lifting, exercise, recommend, climbing, run, appointment
+2025-05-19 10:44:18,307 - INFO - LDA Model with k=5 Perplexity: 5.7354
+2025-05-19 10:44:18,307 - INFO - Running LDA with k=10, maxIter=20
+2025-05-19 10:44:19,377 - INFO - Topic 0: walk, able, stair, sudden, leg, difficulty, stand, trouble, weakness, fall
+2025-05-19 10:44:19,377 - INFO - Topic 1: ambulate, pain, tolerate, control, diet, medication, patient, assistance, regular, discharge
+2025-05-19 10:44:19,377 - INFO - Topic 2: saturation, continue, orient, ambulated, towel, let, wife, loss, spirometer, plenty
+2025-05-19 10:44:19,377 - INFO - Topic 3: normal, avoid, difficult, need, weakness, pass, shortness, limit, stable, confusion
+2025-05-19 10:44:19,377 - INFO - Topic 4: walk, day, time, activity, continue, rest, ambulate, drink, amount, plenty
+2025-05-19 10:44:19,377 - INFO - Topic 5: comfortably, recovery, correct, yellow, secondary, heavy, month, give, admission, appear
+2025-05-19 10:44:19,377 - INFO - Topic 6: ambulate, pain, discharge, heal, oral, analgesic, baseline, walker, walk, hip
+2025-05-19 10:44:19,377 - INFO - Topic 7: run, incision, shower, water, dry, pat, soapy, family, let, allow
+2025-05-19 10:44:19,377 - INFO - Topic 8: shortness, dressing, warm, rehab, mobilization, frequently, say, get, mouth, analgesic
+2025-05-19 10:44:19,377 - INFO - Topic 9: visit, towel, afebrile, need, ago, small, complete, procedure, bathroom, gait
+2025-05-19 10:44:19,377 - INFO - LDA Model with k=10 Perplexity: 6.7556
+2025-05-19 10:44:19,377 - INFO - Running LDA with k=15, maxIter=20
+2025-05-19 10:44:20,446 - INFO - Topic 0: walk, able, stair, activity, sudden, pain, week, leg, difficulty, trouble
+2025-05-19 10:44:20,447 - INFO - Topic 1: ambulate, pain, tolerate, control, diet, assistance, medication, patient, regular, void
+2025-05-19 10:44:20,447 - INFO - Topic 2: saturation, continue, orient, ambulated, towel, let, wife, loss, spirometer, plenty
+2025-05-19 10:44:20,447 - INFO - Topic 3: normal, avoid, difficult, need, weakness, pass, shortness, limit, stable, confusion
+2025-05-19 10:44:20,447 - INFO - Topic 4: drink, indicate, dizziness, sternal, push, daily, htn, mouth, minute, find
+2025-05-19 10:44:20,447 - INFO - Topic 5: comfortably, recovery, correct, yellow, secondary, heavy, month, give, admission, appear
+2025-05-19 10:44:20,447 - INFO - Topic 6: ambulated, heal, acute, discharge, avoid, aresa, drink, let, report, hip
+2025-05-19 10:44:20,447 - INFO - Topic 7: spray, recommend, hospital, condition, result, turning, change, baseline, adequate, followup
+2025-05-19 10:44:20,447 - INFO - Topic 8: shortness, dressing, warm, rehab, mobilization, frequently, say, get, mouth, analgesic
+2025-05-19 10:44:20,448 - INFO - Topic 9: block, complete, stop, able, doe, symptom, worsen, onset, unable, time
+2025-05-19 10:44:20,448 - INFO - Topic 10: room, chest, start, block, followup, talk, pass, line, excessive, clinic
+2025-05-19 10:44:20,448 - INFO - Topic 11: ambulate, day, time, discharge, continue, walk, adequate, pain, rest, amount
+2025-05-19 10:44:20,448 - INFO - Topic 12: lbs, brief, boot, fall, frequency, prior, drainage, left, amount, followup
+2025-05-19 10:44:20,448 - INFO - Topic 13: run, incision, water, shower, dry, pat, soapy, family, let, allow
+2025-05-19 10:44:20,448 - INFO - Topic 14: incentive, bed, oxygen, ambulate, spirometer, encourage, sit, saturation, indicate, use
+2025-05-19 10:44:20,448 - INFO - LDA Model with k=15 Perplexity: 8.2095
+2025-05-19 10:44:20,605 - INFO - NumExpr defaulting to 8 threads.
+2025-05-19 10:44:20,790 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
+2025-05-19 10:44:21,456 - INFO - Closing down clientserver connection
