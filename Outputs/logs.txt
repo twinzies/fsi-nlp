@@ -1,0 +1,305 @@
+2025-05-19 08:18:50,149 - INFO - Number of sentences in dataframe: 51834
+2025-05-19 08:18:50,149 - INFO - Preprocessing sentences...
+2025-05-19 08:21:46,399 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+2025-05-19 08:21:46,401 - INFO - Closing down clientserver connection
+2025-05-19 08:21:46,401 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 08:21:46,401 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2025-05-19 08:21:46,403 - INFO - Closing down clientserver connection
+2025-05-19 08:21:46,403 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 08:21:46,403 - INFO - Closing down clientserver connection
+2025-05-19 08:21:46,407 - INFO - Closing down clientserver connection
+2025-05-19 08:22:32,238 - INFO - Number of sentences in dataframe: 2000
+2025-05-19 08:22:32,238 - INFO - Preprocessing sentences...
+2025-05-19 08:23:24,175 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+2025-05-19 08:23:24,176 - INFO - Closing down clientserver connection
+2025-05-19 08:23:24,176 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 08:23:24,177 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2025-05-19 08:23:24,179 - INFO - Closing down clientserver connection
+2025-05-19 08:23:24,179 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 08:23:24,180 - INFO - Closing down clientserver connection
+2025-05-19 08:23:24,183 - INFO - Closing down clientserver connection
+2025-05-19 08:30:28,920 - INFO - Number of sentences in dataframe: 2000
+2025-05-19 08:30:28,921 - INFO - Preprocessing sentences...
+2025-05-19 08:38:57,612 - INFO - Number of processed sentences: 1872
+2025-05-19 08:38:57,618 - INFO - Closing down clientserver connection
+2025-05-19 08:49:43,663 - INFO - Number of sentences in dataframe: 2000
+2025-05-19 08:49:43,664 - INFO - Preprocessing sentences...
+2025-05-19 08:51:28,180 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+2025-05-19 08:51:28,185 - INFO - Closing down clientserver connection
+2025-05-19 08:51:28,185 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=7>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 08:51:28,187 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2025-05-19 08:51:28,192 - INFO - Closing down clientserver connection
+2025-05-19 08:51:28,192 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/machine-learning-312-env/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-05-19 08:51:28,192 - INFO - Closing down clientserver connection
+2025-05-19 08:51:28,200 - INFO - Closing down clientserver connection
+2025-05-19 08:51:51,723 - INFO - Number of sentences in dataframe: 200
+2025-05-19 08:51:51,724 - INFO - Preprocessing sentences...
+2025-05-19 08:52:44,547 - INFO - Number of processed sentences: 200
+2025-05-19 08:52:44,550 - INFO - Closing down clientserver connection
+2025-05-19 09:05:29,159 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:05:29,159 - INFO - Preprocessing sentences with Spark-native functions...
+2025-05-19 09:05:29,253 - INFO - Number of processed sentences: 200
+2025-05-19 09:05:29,254 - INFO - Closing down clientserver connection
+2025-05-19 09:06:56,136 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:06:56,137 - INFO - Preprocessing sentences with Spark-native functions...
+2025-05-19 09:06:56,247 - INFO - Number of processed sentences: 200
+2025-05-19 09:06:56,455 - INFO - Closing down clientserver connection
+2025-05-19 09:08:00,115 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:08:00,115 - INFO - Preprocessing sentences with Spark-native functions...
+2025-05-19 09:08:00,211 - INFO - Number of processed sentences: 200
+2025-05-19 09:08:00,415 - INFO - Closing down clientserver connection
+2025-05-19 09:11:01,411 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:11:01,412 - INFO - Preprocessing sentences with Spark-native functions for scalability.
+2025-05-19 09:11:01,510 - INFO - Number of processed sentences: 200
+2025-05-19 09:11:01,711 - INFO - Closing down clientserver connection
+2025-05-19 09:17:16,824 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:17:16,824 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
+2025-05-19 09:17:16,997 - INFO - Number of processed sentences: 200
+2025-05-19 09:17:17,194 - INFO - Closing down clientserver connection
+2025-05-19 09:17:58,450 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:17:58,450 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
+2025-05-19 09:17:58,619 - INFO - Number of processed sentences: 200
+2025-05-19 09:17:58,806 - INFO - Closing down clientserver connection
+2025-05-19 09:21:29,072 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:21:29,073 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
+2025-05-19 09:21:29,230 - INFO - Number of processed sentences: 200
+2025-05-19 09:21:29,344 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 09:21:29,515 - INFO - Closing down clientserver connection
+2025-05-19 09:25:33,900 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:25:33,900 - INFO - Preprocessing sentences with Spark-native functions for retaining scalability.
+2025-05-19 09:25:34,066 - INFO - Number of processed sentences: 200
+2025-05-19 09:25:34,187 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 09:25:34,427 - INFO - NumExpr defaulting to 8 threads.
+2025-05-19 09:25:34,832 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
+2025-05-19 09:25:34,833 - INFO - Closing down clientserver connection
+2025-05-19 09:28:59,370 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:28:59,370 - INFO - Preprocessing sentences with Spark-native functions...
+2025-05-19 09:28:59,557 - INFO - Number of processed sentences: 200
+2025-05-19 09:28:59,558 - INFO - Closing down clientserver connection
+2025-05-19 09:35:17,718 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:35:17,718 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 09:35:20,426 - INFO - Number of processed sentences: 200
+2025-05-19 09:35:20,428 - INFO - Closing down clientserver connection
+2025-05-19 09:36:26,338 - INFO - Number of sentences in dataframe: 200
+2025-05-19 09:36:26,338 - INFO - Preprocessing sentences with spaCy NLP...
+2025-05-19 09:36:29,088 - INFO - Number of processed sentences: 200
+2025-05-19 09:36:30,968 - INFO - [DEBUG] Row count before writing CSV: 200
+2025-05-19 09:36:31,189 - INFO - NumExpr defaulting to 8 threads.
+2025-05-19 09:36:33,211 - INFO - Saved processed sentences to Outputs/sentences_preprocessed.csv
+2025-05-19 09:36:33,213 - INFO - Closing down clientserver connection
